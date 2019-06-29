@@ -7,9 +7,11 @@ if(!$_SESSION['role']){
 <!DOCTYPE HTML>
 <html>
     <head>
+       <?php include "../bootstrap/bootstrap.html"; ?>
         
     </head>
     <body>
+      <?php include "navbar.php"; ?>
        
         
     </body>

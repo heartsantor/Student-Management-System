@@ -57,9 +57,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $_SESSION['session']=$session;
                     $_SESSION['category']=$category;
                     if($category=="eff")
-                        redirect("../eff");
+                    {
+                        if($result['eff']==0)
+                        {
+                               redirect("../not_allowed.php");
+                        }
+                        else
+                        {
+                              redirect("../eff");
+                        }
+                      
+                    }
                     if($category=="esif")
-                        redirect("../esif");
+                    {
+                        if($result['esif']==0)
+                        {
+                       redirect("../not_allowed.php");
+                        }
+                        else
+                        {
+                            redirect("../esif");
+                        }
+                        
+                    }
+                        
                 } else{
                     // Display an error message if password is not valid
                     $password_err = 'The password you entered was not valid.';
@@ -125,8 +146,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <select name="session" onchange='myFunction3()' class="form-control" style="width:150px ;visibility:hidden"  id="session">
                                 <option value="">--SESSION--</option>
                                 <?php
-                                $result=mysqli_query($db,"SELECT * FROM session ORDER BY session_name DESC");
-                                while($row=mysqli_fetch_array($result))
+                                $data=mysqli_query($db,"SELECT * FROM session ORDER BY session_name DESC");
+                                while($row=mysqli_fetch_array($data))
                                 {
                                     echo "<option value='".$row['session_name']."'>".$row['session_name']."</option>";
                                 }

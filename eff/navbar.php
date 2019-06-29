@@ -13,7 +13,15 @@
       <li><a href="#">Transcript</a></li>
       <li><a href="#">Merit List</a></li>
       <li><a href="#">Search</a></li>
+        <?php
+        if($_SESSION['role']=='admin')
+        {
+        ?>
       <li><a href="#">Settings</a></li>
+      <li><a href="#">Global Settings</a></li>
+        <?php
+        }
+            ?>
       <li><a href="logout.php">Logout</a></li>
     </ul>
   </div>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!$_SESSION['role']){
-    header("location:login");
+    header("location:../index.php");
 }
 require_once '../connection/connect.php';
 ?>

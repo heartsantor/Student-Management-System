@@ -89,7 +89,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
         <style type="text/css">
             body{ font: 14px sans-serif; 
-            background: silver;
+            background:;
             }
             .wrapper{padding-right: 100px;padding-top: 100px; background: white}
             form {border: 3px solid #f1f1f1;padding: 30px;padding-top: }

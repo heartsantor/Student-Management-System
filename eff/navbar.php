@@ -14,7 +14,7 @@
       <li><a href="#">Merit List</a></li>
       <li><a href="#">Search</a></li>
       <li><a href="#">Settings</a></li>
-      <li><a href="#">Logout</a></li>
+      <li><a href="logout.php">Logout</a></li>
     </ul>
   </div>
 </nav>

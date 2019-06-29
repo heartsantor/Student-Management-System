@@ -3,6 +3,7 @@ session_start();
 if(!$_SESSION['role']){
     header("location:login");
 }
+require_once '../connection/connect.php';
 ?>
 <!DOCTYPE HTML>
 <html>

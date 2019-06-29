@@ -12,7 +12,8 @@ if(!$_SESSION['role']){
     </head>
     <body>
       <?php include "navbar.php"; ?>
-       
-        
+      <div class="container">
+      <h1>This is the ESIF Homepage</h1>
+       </div> 
     </body>
 </html>

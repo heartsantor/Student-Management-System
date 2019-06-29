@@ -1,5 +1,5 @@
 <?php
-require_once 'connect.php';
+require_once '../connection/connect.php';
 // Define variables and initialize with empty values
 $username = $password = $category= $user_type = "";
 $username_err = $password_err = $category_err = $user_type_err = "";

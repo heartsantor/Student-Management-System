@@ -21,8 +21,6 @@ require_once '../connection/connect.php';
                 $result=mysqli_query($db,"SELECT COUNT(*) AS total FROM student");
                 $row=mysqli_fetch_array($result);
                 $student_id=$row['total']+1;
-                $student_id=(string)$student_id;
-                $digit=strlen($student_id);
                 $student_id=sprintf("%05d", $student_id);
                 $student_id="S".$student_id;
                 ?>
@@ -34,6 +32,14 @@ require_once '../connection/connect.php';
                     <option value="Boys">Boys</option>
                     <option value="Girls">Girls</option>
                     <option value="Combined">Combined</option>
+                </select>
+                <label>Session</label>
+                <input name="session" class="form-control" value="<?php echo $_SESSION['session'];?>" disabled>
+                <label>Shift</label>
+                <select name="section" class="form-control">
+                    <option value="">--SELECT SHIFT--</option>
+                    <option value="Morning">Morning</option>
+                    <option value="Day">Day</option>
                 </select>
             </form>
         </div> 

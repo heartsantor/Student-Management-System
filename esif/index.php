@@ -57,7 +57,7 @@ require_once '../connection/connect.php';
       $transport=mysqli_real_escape_string($db,$_POST['transport']);
       $residential=mysqli_real_escape_string($db,$_POST['residential']);
       $student_photo="";
-      $studet_nid_photo="";
+      $student_nid_photo="";
 
       $father_name=mysqli_real_escape_string($db,$_POST['father']);
       $father_phone=mysqli_real_escape_string($db,$_POST['father_mobile']);
@@ -134,7 +134,7 @@ require_once '../connection/connect.php';
               $ref="nid-".$student_id;
               $file=explode(".",$file);
               $file=$ref.".".end($file);
-              $target_dir= "../nid_photo/";
+              $target_dir= "../student_nid_photo/";
               $target_file= $target_dir.$file;
 
               //move_uploaded_file($_FILES['user_signature']['tmp_name'], $target_file);
@@ -148,16 +148,164 @@ require_once '../connection/connect.php';
           }
         }
       }
+
+      if(isset($_FILES['father_photo']['name']) && @$_FILES['father_photo']['name'] != "") {
+        if($_FILES['father_photo']['error'] > 0) {
+          echo '<h4>Increase post_max_size and upload_max_filesize limit in php.ini file.</h4>';
+        } else {
+          if($_FILES['father_photo']['size'] / 1024 <= 5120) { // 5MB
+            if($_FILES['father_photo']['type'] == 'image/jpeg' ||
+            $_FILES['father_photo']['type'] == 'image/pjpeg' ||
+            $_FILES['father_photo']['type'] == 'image/png' ||
+            $_FILES['father_photo']['type'] == 'image/gif'){
+
+              $source_file = $_FILES['father_photo']['tmp_name'];
+
+              $width      = 600;
+              $height     = 300;
+              $quality    = 80;
+
+              $file = $_FILES['father_photo']['name'];
+              $ref="f-".$student_id;
+              $file=explode(".",$file);
+              $file=$ref.".".end($file);
+              $target_dir= "../student_guardian/";
+              $target_file= $target_dir.$file;
+
+              //move_uploaded_file($_FILES['user_signature']['tmp_name'], $target_file);
+              $father_photo = $target_file;
+
+              $success = compress_image($source_file, $target_file, $width, $height, $quality);
+
+            }
+          } else {
+            echo '<h4>Image should be maximun 5MB in size!</h4>';
+          }
+        }
+      }
+
+      if(isset($_FILES['father_nid_photo']['name']) && @$_FILES['father_nid_photo']['name'] != "") {
+        if($_FILES['father_nid_photo']['error'] > 0) {
+          echo '<h4>Increase post_max_size and upload_max_filesize limit in php.ini file.</h4>';
+        } else {
+          if($_FILES['father_nid_photo']['size'] / 1024 <= 5120) { // 5MB
+            if($_FILES['father_nid_photo']['type'] == 'image/jpeg' ||
+            $_FILES['father_nid_photo']['type'] == 'image/pjpeg' ||
+            $_FILES['father_nid_photo']['type'] == 'image/png' ||
+            $_FILES['father_nid_photo']['type'] == 'image/gif'){
+
+              $source_file = $_FILES['father_nid_photo']['tmp_name'];
+
+              $width      = 600;
+              $height     = 300;
+              $quality    = 80;
+
+              $file = $_FILES['father_nid_photo']['name'];
+              $ref="f-nid-".$student_id;
+              $file=explode(".",$file);
+              $file=$ref.".".end($file);
+              $target_dir= "../student_guardian_nid/";
+              $target_file= $target_dir.$file;
+
+              //move_uploaded_file($_FILES['user_signature']['tmp_name'], $target_file);
+              $father_nid_photo = $target_file;
+
+              $success = compress_image($source_file, $target_file, $width, $height, $quality);
+
+            }
+          } else {
+            echo '<h4>Image should be maximun 5MB in size!</h4>';
+          }
+        }
+      }
+
+      if(isset($_FILES['mother_photo']['name']) && @$_FILES['mother_photo']['name'] != "") {
+        if($_FILES['mother_photo']['error'] > 0) {
+          echo '<h4>Increase post_max_size and upload_max_filesize limit in php.ini file.</h4>';
+        } else {
+          if($_FILES['mother_photo']['size'] / 1024 <= 5120) { // 5MB
+            if($_FILES['mother_photo']['type'] == 'image/jpeg' ||
+            $_FILES['mother_photo']['type'] == 'image/pjpeg' ||
+            $_FILES['mother_photo']['type'] == 'image/png' ||
+            $_FILES['mother_photo']['type'] == 'image/gif'){
+
+              $source_file = $_FILES['mother_photo']['tmp_name'];
+
+              $width      = 600;
+              $height     = 300;
+              $quality    = 80;
+
+              $file = $_FILES['mother_photo']['name'];
+              $ref="m-".$student_id;
+              $file=explode(".",$file);
+              $file=$ref.".".end($file);
+              $target_dir= "../student_guardian/";
+              $target_file= $target_dir.$file;
+
+              //move_uploaded_file($_FILES['user_signature']['tmp_name'], $target_file);
+              $mother_photo = $target_file;
+
+              $success = compress_image($source_file, $target_file, $width, $height, $quality);
+
+            }
+          } else {
+            echo '<h4>Image should be maximun 5MB in size!</h4>';
+          }
+        }
+      }
+
+      if(isset($_FILES['mother_nid_photo']['name']) && @$_FILES['mother_nid_photo']['name'] != "") {
+        if($_FILES['mother_nid_photo']['error'] > 0) {
+          echo '<h4>Increase post_max_size and upload_max_filesize limit in php.ini file.</h4>';
+        } else {
+          if($_FILES['mother_nid_photo']['size'] / 1024 <= 5120) { // 5MB
+            if($_FILES['mother_nid_photo']['type'] == 'image/jpeg' ||
+            $_FILES['mother_nid_photo']['type'] == 'image/pjpeg' ||
+            $_FILES['mother_nid_photo']['type'] == 'image/png' ||
+            $_FILES['mother_nid_photo']['type'] == 'image/gif'){
+
+              $source_file = $_FILES['mother_nid_photo']['tmp_name'];
+
+              $width      = 600;
+              $height     = 300;
+              $quality    = 80;
+
+              $file = $_FILES['mother_nid_photo']['name'];
+              $ref="m-nid-".$student_id;
+              $file=explode(".",$file);
+              $file=$ref.".".end($file);
+              $target_dir= "../student_guardian_nid/";
+              $target_file= $target_dir.$file;
+
+              //move_uploaded_file($_FILES['user_signature']['tmp_name'], $target_file);
+              $mother_nid_photo = $target_file;
+
+              $success = compress_image($source_file, $target_file, $width, $height, $quality);
+
+            }
+          } else {
+            echo '<h4>Image should be maximun 5MB in size!</h4>';
+          }
+        }
+      }
+
+
+
+      mysqli_query($db,"INSERT INTO `student`(`student_id`, `student_name`, `student_section`, `student_session`, `student_class`, `student_shift`, `student_gender`, `student_dob`, `student_blood`, `student_special_need`, `student_nid`, `student_nationality`, `student_phone`, `student_present_address`, `student_par_address`, `student_adm_date`, `student_transport`, `student_residential`, `student_photo`, `student_nid_photo`, `father_name`, `father_phone`, `father_nid`, `father_nid_photo`, `father_occupation`, `father_office`, `father_income`, `father_photo`, `mother_name`, `mother_phone`, `mother_nid`, `mother_nid_photo`, `mother_occupation`, `mother_income`, `mother_office`, `mother_photo`) VALUES ('$student_id','$student_name','$section','$session','$class','$shift','$gender','$dob','$blood_group','$special_need','$student_nid','$nationality','$phone','$present_address','$parm_address','$date_of_admission','$transport','$residential','$student_photo','$student_nid_photo','$father_name','$father_phone','$father_nid','$father_nid_photo','$father_occupation','$father_office','$father_income','$father_photo','$mother_name','$mother_phone','$mother_nid','$mother_nid_photo','$mother_occupation','$mother_income','$mother_office','$mother_photo')");
+
     }
+
+
+
     ?>
     <form action="" method="post" enctype="multipart/form-data">
       <div class="row">
         <div class="col-sm-6">
           <h5><span style="color:red">*Required Fields</span></h5>
           <label>Student Full Name<span style="color:red">*</span></label>
-          <input name="full_name" class="form-control" required="required">
+          <input name="full_name" class="form-control" required>
           <?php
-          $result=mysqli_query($db,"SELECT COUNT(*) AS total FROM student");
+          $result=mysqli_query($db,"SELECT MAX(student_serial) AS total FROM student");
           $row=mysqli_fetch_array($result);
           $student_id=$row['total']+1;
           $student_id=sprintf("%05d", $student_id);
@@ -165,7 +313,8 @@ require_once '../connection/connect.php';
           ?>
 
           <label>Student ID<span style="color:red">*</span></label>
-          <input name="student_id" class="form-control" value="<?php echo $student_id;?>" disabled style="width">
+          <input class="form-control" value="<?php echo $student_id;?>" disabled style="width:300px">
+          <input type="hidden" name="student_id" class="form-control" value="<?php echo $student_id;?>" style="width:300px">
 
           <label>Section<span style="color:red">*</span></label>
           <select name="section" class="form-control" required>
@@ -176,10 +325,20 @@ require_once '../connection/connect.php';
           </select>
 
           <label>Class<span style="color:red">*</span></label>
-          <input name="class" disabled class="form-control" value="<?php echo $_SESSION['class'];?>">
+          <input name="class" type="hidden" class="form-control" value="<?php echo $_SESSION['class'];?>">
+          <?php
+          $class_id=$_SESSION['class'];
+          $res=mysqli_query($db,"SELECT * FROM class WHERE class_id='$class_id'");
+          $row=mysqli_fetch_array($res);
+          $class_name=$row['class_name'];
+
+          ?>
+
+          <input disabled class="form-control" value="<?php echo $class_name;?>">
 
           <label>Session<span style="color:red">*</span></label>
-          <input name="session" class="form-control" value="<?php echo $_SESSION['session'];?>" disabled>
+          <input name="session" type="hidden" class="form-control" value="<?php echo $_SESSION['session'];?>">
+          <input class="form-control" value="<?php echo $_SESSION['session'];?>" disabled>
 
           <label>Shift<span style="color:red">*</span></label>
           <select name="shift" class="form-control" required>
@@ -189,17 +348,17 @@ require_once '../connection/connect.php';
           </select>
 
           <label>Gender<span style="color:red">*</span></label>
-          <select name="shift" class="form-control" required>
+          <select name="gender" class="form-control" required>
             <option value="">--SELECT GENDER--</option>
-            <option value="Morning">Male</option>
-            <option value="Day">Female</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
           </select>
 
           <label>Date of Birth<span style="color:red">*</span></label>
           <input name="date_of_birth" class="form-control" type="date" required>
 
           <label>Blood Group</label>
-          <select name="blood" class="form-control" style="width:300px" required="required">
+          <select name="blood" class="form-control" style="width:300px" required>
             <option value="">-------</option>
             <option value="B +ve">B +ve</option>
             <option value="B +ve">B -ve</option>
@@ -220,13 +379,14 @@ require_once '../connection/connect.php';
         </div>
         <div class="col-sm-6">
           <label>Nationality</label>
-          <input name="nationality" class="form-control" value="Bangladeshi" disabled required>
+          <input class="form-control" value="Bangladeshi" disabled >
+          <input name="nationality" type="hidden" class="form-control" value="Bangladeshi">
 
           <label>NID/BRN</label>
           <input name="nid" class="form-control" required>
 
           <label>NID Photo</label>
-          <input name="nid_photo" type="file">
+          <input name="nid_photo" type="file" required>
 
 
           <label>Present Address</label>
@@ -258,10 +418,10 @@ require_once '../connection/connect.php';
         <div class="col-sm-6">
           <h3>Father's Information</h3>
           <label>Father's Name</label>
-          <input name="father" required class="form-control">
+          <input name="father"   class="form-control">
 
           <label>Mobile</label>
-          <input name="father_mobile" required class="form-control">
+          <input name="father_mobile"   class="form-control">
 
           <label>Father's NID</label>
           <input name="father_nid" class="form-control">
@@ -270,20 +430,23 @@ require_once '../connection/connect.php';
           <input type="file" name="father_nid_photo" value="Upload NID Photo">
 
           <label>Occupation</label>
-          <input name="father_occupation" required class="form-control">
+          <input name="father_occupation"   class="form-control">
 
           <label>Monthly Income</label>
-          <input name="father_income" required class="form-control">
+          <input name="father_income"   class="form-control">
 
           <label>Office Address</label>
           <textarea name="father_office_address" class="form-control"></textarea>
+
+          <label>Father's Photo</label>
+          <input type="file" name="father_photo" value="Upload NID Photo">
         </div>
         <div class="col-sm-6">
           <h3>Mother's Information</h3>
           <label>Mother's Name</label>
-          <input name="mother" required class="form-control">
+          <input name="mother"   class="form-control">
           <label>Mobile</label>
-          <input name="mother_mobile" required class="form-control">
+          <input name="mother_mobile"   class="form-control">
           <label>Mother's NID</label>
           <input name="mother_nid" class="form-control">
 
@@ -291,11 +454,13 @@ require_once '../connection/connect.php';
           <input type="file" name="mother_nid_photo" value="Upload NID Photo">
 
           <label>Occupation</label>
-          <input name="mother_occupation" required class="form-control">
+          <input name="mother_occupation"   class="form-control">
           <label>Monthly Income</label>
-          <input name="mother_income" required class="form-control">
+          <input name="mother_income"   class="form-control">
           <label>Office Address</label>
           <textarea name="mother_office_address" class="form-control"></textarea>
+          <label>Mother's Photo</label>
+          <input type="file" name="mother_photo" value="Upload NID Photo">
         </div>
       </div>
       <br>
@@ -306,6 +471,7 @@ require_once '../connection/connect.php';
   <br>
   <br>
 </body>
+
 </html>
 <?php
 function compress_image($source_file, $target_file, $nwidth, $nheight, $quality) {

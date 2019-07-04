@@ -161,7 +161,7 @@ require_once '../connection/connect.php';
 
               $source_file = $_FILES['father_photo']['tmp_name'];
 
-              $width      = 600;
+              $width      = 300;
               $height     = 300;
               $quality    = 80;
 
@@ -231,7 +231,7 @@ require_once '../connection/connect.php';
 
               $source_file = $_FILES['mother_photo']['tmp_name'];
 
-              $width      = 600;
+              $width      = 300;
               $height     = 300;
               $quality    = 80;
 

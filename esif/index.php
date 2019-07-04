@@ -79,9 +79,9 @@ require_once '../connection/connect.php';
                         <label>Phone</label>
                         <input name="phone" class="form-control" required>
                         <label>Present Address</label>
-                        <textarea name="present_address" class="form-control"></textarea> 
+                        <textarea name="present_address" class="form-control"></textarea>
                         <label>Parmanent Address</label>
-                        <textarea name="present_address" class="form-control"></textarea> 
+                        <textarea name="present_address" class="form-control"></textarea>
                         <label>Date of Admission</label>
                         <input name="date_of_admission" class="form-control" type="date" required>
                         <label>Transport Facility</label>
@@ -107,7 +107,7 @@ require_once '../connection/connect.php';
                         <label>Monthly Income</label>
                         <input name="father_income" required class="form-control">
                         <label>Office Address</label>
-                        <textarea name="father_office_address" class="form-control"></textarea> 
+                        <textarea name="father_office_address" class="form-control"></textarea>
                     </div>
                     <div class="col-sm-6">
                         <h3>Mother's Information</h3>
@@ -122,19 +122,12 @@ require_once '../connection/connect.php';
                         <label>Monthly Income</label>
                         <input name="father_income" required class="form-control">
                         <label>Office Address</label>
-                        <textarea name="father_office_address" class="form-control"></textarea> 
+                        <textarea name="father_office_address" class="form-control"></textarea>
                     </div>
                 </div>
-
-
-
-
                 <hr>
-
-
-
             </form>
-        </div> 
+        </div>
         <br>
         <br>
     </body>
@@ -155,7 +148,7 @@ function compress_image($source_file, $target_file, $nwidth, $nheight, $quality)
                 //Resize the $thumb image
                 imagecopyresized($thumb, $image, 0, 0, 0, 0, $nwidth, $nheight, $image_info[0], $image_info[1]);
                 // Output image to the browser or file.
-                return imagejpeg($thumb, $target_file, $quality); 
+                return imagejpeg($thumb, $target_file, $quality);
                 break;
             case 'image/png' :
                 if($quality == '' || $quality < 0 || $quality > 9) $quality = 6; //Default quality

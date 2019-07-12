@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 04, 2019 at 05:54 PM
+-- Generation Time: Jul 12, 2019 at 11:58 PM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -39,6 +39,7 @@ CREATE TABLE `student` (
   `student_gender` varchar(20) NOT NULL,
   `student_dob` date NOT NULL,
   `student_blood` varchar(5) NOT NULL,
+  `student_religion` varchar(15) NOT NULL,
   `student_special_need` varchar(50) NOT NULL,
   `student_nid` varchar(30) NOT NULL,
   `student_nationality` varchar(20) NOT NULL,

@@ -33,7 +33,7 @@ INSERT INTO `subject`(`subject_id`, `subject_name`, `subject_code`, `class_id`) 
 ('109_vii','Mathematics','109','vii'),
 ('109_viii','Mathematics','109','viii'),
 ('109_ix','Mathematics','109','ix'),
-('109_x','Mathematics','108','x'),
+('109_x','Mathematics','109','x'),
 
 ('111_vi','Religious Studies Islam','111','vi'),
 ('111_vii','Religious Studies Islam','111','vii'),
@@ -58,3 +58,15 @@ INSERT INTO `subject`(`subject_id`, `subject_name`, `subject_code`, `class_id`) 
 ('114_viii','Religious Studies Christian','114','viii'),
 ('114_ix','Religious Studies Christian','114','ix'),
 ('114_x','Religious Studies Christian','114','x'),
+
+('154_vi','Information & Communication Technology','154','vi'),
+('154_vii','Information & Communication Technology','154','vii'),
+('154_viii','Information & Communication Technology','154','viii'),
+('154_ix','Information & Communication Technology','154','ix'),
+('154_x','Information & Communication Technology','154','x'),
+
+('147_vi','Physical  Education Health  & Sports','147','vi'),
+('147_vii','Physical  Education Health  & Sports','147','vii'),
+('147_viii','Physical  Education Health  & Sports','147','viii'),
+('147_ix','Physical  Education Health  & Sports','147','ix'),
+('147_x','Physical  Education Health  & Sports','147','x'),

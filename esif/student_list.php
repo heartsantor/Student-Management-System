@@ -53,6 +53,9 @@ require_once '../connection/connect.php';
     <?php
     if(isset($_POST['submit']))
     {
+      $ins_res=mysqli_query($db,"SELECT * FROM institution_details WHERE serial='1'");
+      $ins_row=mysqli_fetch_array($ins_res);
+
       $shift=$_POST['shift'];
       $section=$_POST['section'];
       $group=$_POST['group'];
@@ -65,6 +68,13 @@ require_once '../connection/connect.php';
       $criteria=$_GET['criteria'];
       $result=mysqli_query($db,"SELECT * FROM student WHERE student_class='$class' AND student_session='$session' AND student_shift='$shift' AND student_section='$section' AND student_group='$group'");
       $total_student=$result->num_rows;
+
+      echo "<center>";
+      echo "<h3><b>".$ins_row['name']."</b></h3>";
+      echo $ins_row['address']."<br>";
+      echo "Estd: <b>".date_format(date_create($ins_row['estd']),'m/d/Y')."</b>, EIIN: <b>".$ins_row['eiin']."</b>, Phone: <b>".$ins_row['phone']."</b><br>";
+      echo "Email: <b>".$ins_row['email']."</b>, Web: <b>".$ins_row['web']."</b><br>";
+      echo "</center>";
       echo "<center>Student Profile of <b>".date('d F, Y')."</b>";
       echo "<center>Session: <b>".$session."</b>, Class: <b>".$class_row['class_name']."</b>,  Section: <b>".$section."</b>, ";
       echo "Group: <b>".$group."</b>, Student: <b>".$total_student."</b></center>";

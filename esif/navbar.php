@@ -4,7 +4,7 @@
       <a class="navbar-brand" href="index.php">ESIF</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="index.php">ESIF</a></li>
+      <li class="active"><a href="index.php">eSIF</a></li>
       <li><a href="#">Student List</a></li>
       <li><a href="#">All Form</a></li>
       <li><a href="#">ID Card</a></li>

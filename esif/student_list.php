@@ -14,5 +14,7 @@ require_once '../connection/connect.php';
 <body>
   <?php include "navbar.php"; ?>
   <div class="container">
+    
+  </div>
 </body>
 </html>

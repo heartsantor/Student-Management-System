@@ -5,7 +5,14 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="index.php">eSIF</a></li>
-      <li><a href="#">Student List</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Student List
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="student_list.php?id=without_image">Without Image</a></li>
+          <li><a href="student_list.php?id=with_image">With Image</a></li>
+        </ul>
+      </li>
       <li><a href="#">All Form</a></li>
       <li><a href="#">ID Card</a></li>
       <li><a href="#">Ex-Student</a></li>

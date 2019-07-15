@@ -70,3 +70,24 @@ INSERT INTO `subject`(`subject_id`, `subject_name`, `subject_code`, `class_id`) 
 ('147_viii','Physical  Education Health  & Sports','147','viii'),
 ('147_ix','Physical  Education Health  & Sports','147','ix'),
 ('147_x','Physical  Education Health  & Sports','147','x'),
+//
+
+('155_vi','Work & Life Oriented Education','155','vi'),
+('155_vii','Work & Life Oriented Education','155','vii'),
+('155_viii','Work & Life Oriented Education','155','viii'),
+
+('127_vi','Science','127','vi'),
+('127_vii','Science','127','vii'),
+('127_viii','Science','127','viii'),
+
+('150_vi','Bangladesh & Global Studies','150','vi'),
+('150_vii','Bangladesh & Global Studies','150','vii'),
+('150_viii','Bangladesh & Global Studies','150','viii'),
+
+('134_vi','Agricultural Science','134','vi'),
+('134_vii','Agricultural Science','134','vii'),
+('134_viii','Agricultural Science','134','viii'),
+
+('151_vi','Home Science','151','vi'),
+('151_vii','Home Science','151','vii'),
+('151_viii','Home Science','151','viii'),

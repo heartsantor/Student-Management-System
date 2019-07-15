@@ -34,7 +34,7 @@ require_once '../connection/connect.php';
 <body>
   <?php include "navbar.php"; ?>
   <div class="container">
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="new_student.php" method="post" enctype="multipart/form-data">
       <div class="row">
         <div class="col-sm-6">
           <h5><span style="color:red">*Required Fields</span></h5>
@@ -83,6 +83,9 @@ require_once '../connection/connect.php';
             <option value="Day">Day</option>
           </select>
 
+          <label>Class Roll<span style="color:red">*</span></label>
+          <input name='student_roll' class='form-control' required>
+
           <label>Gender<span style="color:red">*</span></label>
           <select name="gender" class="form-control" required>
             <option value="">--SELECT GENDER--</option>
@@ -91,12 +94,12 @@ require_once '../connection/connect.php';
           </select>
 
           <label>Religion<span style="color:red">*</span></label>
-          <select name="religion" class="form-control" required>
+          <select name="religion" onchange='myFunction()' id="religion" class="form-control" required>
             <option value="">--SELECT RELIGION--</option>
-            <option value="islam">Islam</option>
-            <option value="hindu">Hindu</option>
-            <option value="buddhist">Buddhist</option>
-            <option value="christian">Christian</option>
+            <option value="Islam">Islam</option>
+            <option value="Hindu">Hindu</option>
+            <option value="Buddhist">Buddhist</option>
+            <option value="Christian">Christian</option>
           </select>
 
           <label>Date of Birth<span style="color:red">*</span></label>
@@ -163,11 +166,26 @@ require_once '../connection/connect.php';
       <div class="row">
         <div class="col-sm-6">
           <?php
-          $sub_res=mysqli_query($db,"SELECT * FROM subject WHERE class_id='".$_SESSION['class']."' AND religion='0'");
+          $sub_res=mysqli_query($db,"SELECT * FROM subject WHERE class_id='".$_SESSION['class']."' AND religion='0' AND optional_type1='0' AND optional_type2='0' AND elective='0' AND science='0' AND commerce='0' AND arts='0'");
           while($sub_row=mysqli_fetch_array($sub_res))
           {
             echo "<input type='text' disabled class='form-control' value='".$sub_row['subject_name']." (".$sub_row['subject_code'].")'>";
           } ?>
+        </div>
+        <div class="col-sm-6">
+          <label>Religion</label>
+          <div id="demo"></div>
+          <label>Optional Subject:</label>
+          <select class="form-control" name="optional_type1" required>
+            <option value="">--SELECT OPTIONAL--</option>
+            <?php
+            $optional_res=mysqli_query($db,"SELECT * FROM subject WHERE class_id='".$_SESSION['class']."' AND optional_type1='1'");
+            while($optional_row=mysqli_fetch_array($optional_res))
+            {
+              echo "<option value='".$optional_row['subject_code']."'>".$optional_row['subject_name']." (".$optional_row['subject_code'].")</option>";
+            }
+            ?>
+          </select>
         </div>
       </div>
       <hr>
@@ -228,5 +246,27 @@ require_once '../connection/connect.php';
   <br>
   <br>
 </body>
+<script>
+function myFunction() {
+    var x = document.getElementById("religion").value;
+    if(x=='Islam')
+    {
+      document.getElementById("demo").innerHTML = "<input type='text' class='form-control' disabled value='Religious Studies Islam (111)'><input type='hidden' name='religion_sub' value='111'>";
+    }
+    else if(x=='Hindu')
+    {
+      document.getElementById("demo").innerHTML = "<input type='text' class='form-control' disabled value='Religious Studies Hindu (112)'><input type='hidden' name='religion_sub' value='112'>";
+    }
+    else if(x=='Buddhist')
+    {
+      document.getElementById("demo").innerHTML = "<input type='text' class='form-control' disabled value='Religious Studies Buddha (113)'><input type='hidden' name='religion_sub' value='113'>";
+
+    }
+    else if(x=='Christian')
+    {
+      document.getElementById("demo").innerHTML = "<input type='text' class='form-control' disabled value='Religious Studies Christian (114)'><input type='hidden' name='religion_sub' value='114'>";
+    }
+  }
+</script>
 
 </html>

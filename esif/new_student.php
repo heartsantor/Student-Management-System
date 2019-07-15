@@ -1,6 +1,7 @@
 <?php
 require_once '../connection/connect.php';
-
+header( "refresh:3;url=index.php" );
+include "../bootstrap/bootstrap.html";
 if(isset($_POST['submit']))
 {
 //
@@ -26,8 +27,10 @@ if(isset($_POST['submit']))
   $student_nid_photo="";
   //
   $student_religion=$_POST['religion'];
+  $student_roll=mysqli_real_escape_string($db,$_POST['student_roll']);
 
   //
+
 
   $father_name=mysqli_real_escape_string($db,$_POST['father']);
   $father_phone=mysqli_real_escape_string($db,$_POST['father_mobile']);
@@ -261,8 +264,31 @@ if(isset($_POST['submit']))
 
 
 
-  mysqli_query($db, "INSERT INTO `student`(`student_id`, `student_name`, `student_section`, `student_session`, `student_class`, `student_shift`, `student_gender`, `student_dob`, `student_blood`, `student_special_need`, `student_nid`, `student_nationality`, `student_phone`, `student_present_address`, `student_par_address`, `student_adm_date`, `student_transport`, `student_residential`, `student_photo`, `student_nid_photo`, `father_name`, `father_phone`, `father_nid`, `father_nid_photo`, `father_occupation`, `father_office`, `father_income`, `father_photo`, `mother_name`, `mother_phone`, `mother_nid`, `mother_nid_photo`, `mother_occupation`, `mother_income`, `mother_office`, `mother_photo`,`student_religion`) VALUES ('$student_id','$student_name','$section','$session','$class','$shift','$gender','$dob','$blood_group','$special_need','$student_nid','$nationality','$phone','$present_address','$parm_address','$date_of_admission','$transport','$residential','$student_photo','$student_nid_photo','$father_name','$father_phone','$father_nid','$father_nid_photo','$father_occupation','$father_office','$father_income','$father_photo','$mother_name','$mother_phone','$mother_nid','$mother_nid_photo','$mother_occupation','$mother_income','$mother_office','$mother_photo','$student_religion')");
+  mysqli_query($db, "INSERT INTO `student`(`student_id`, `student_name`, `student_section`, `student_session`, `student_class`, `student_shift`, `student_gender`, `student_dob`, `student_blood`, `student_special_need`, `student_nid`, `student_nationality`, `student_phone`, `student_present_address`, `student_par_address`, `student_adm_date`, `student_transport`, `student_residential`, `student_photo`, `student_nid_photo`, `father_name`, `father_phone`, `father_nid`, `father_nid_photo`, `father_occupation`, `father_office`, `father_income`, `father_photo`, `mother_name`, `mother_phone`, `mother_nid`, `mother_nid_photo`, `mother_occupation`, `mother_income`, `mother_office`, `mother_photo`,`student_religion`, `student_roll`) VALUES ('$student_id','$student_name','$section','$session','$class','$shift','$gender','$dob','$blood_group','$special_need','$student_nid','$nationality','$phone','$present_address','$parm_address','$date_of_admission','$transport','$residential','$student_photo','$student_nid_photo','$father_name','$father_phone','$father_nid','$father_nid_photo','$father_occupation','$father_office','$father_income','$father_photo','$mother_name','$mother_phone','$mother_nid','$mother_nid_photo','$mother_occupation','$mother_income','$mother_office','$mother_photo','$student_religion','$student_roll')");
+
+
+  $sub_res=mysqli_query($db,"SELECT * FROM subject WHERE class_id='$class' AND religion='0' AND optional_type1='0' AND optional_type2='0' AND elective='0' AND science='0' AND commerce='0' AND arts='0'");
+
+  while($sub_row=mysqli_fetch_array($sub_res))
+  {
+    $subject_code=$sub_row['subject_code'];
+    mysqli_query($db,"INSERT INTO `subject_student`(`subject_student_id`, `subject_student_code`,`class_id`,`session_name`) VALUES ('$student_id','$subject_code','$class','$session')");
+  }
+
+  $religion_sub=$_POST['religion_sub'];
+  mysqli_query($db,"INSERT INTO `subject_student`(`subject_student_id`, `subject_student_code`,`religion`,`class_id`,`session_name`) VALUES ('$student_id','$religion_sub','1','$class','$session')");
+
+  if($class=='vi' || $class=='vii' || $class=='viii')
+  {
+    $optional_type1=$_POST['optional_type1'];
+    mysqli_query($db,"INSERT INTO `subject_student`(`subject_student_id`, `subject_student_code`,`optional_type1`,`class_id`,`session_name`) VALUES ('$student_id','$optional_type1','1','$class','$session')");
+  }
+
+
 }
+
+
+
 ?>
 <?php
 function compress_image($source_file, $target_file, $nwidth, $nheight, $quality) {
@@ -308,4 +334,5 @@ function compress_image($source_file, $target_file, $nwidth, $nheight, $quality)
       }
     }
   }
+  echo "<div class='alert alert-success'>Member Added Successfully! Redirecting.....</div>";
   ?>

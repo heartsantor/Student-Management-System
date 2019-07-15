@@ -9,8 +9,8 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Student List
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="student_list.php?id=without_image">Without Image</a></li>
-          <li><a href="student_list.php?id=with_image">With Image</a></li>
+          <li><a href="student_list.php?criteria=without_image">Without Image</a></li>
+          <li><a href="student_list.php?criteria=with_image">With Image</a></li>
         </ul>
       </li>
       <li><a href="#">All Form</a></li>

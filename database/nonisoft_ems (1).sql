@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 15, 2019 at 11:13 AM
+-- Generation Time: Jul 17, 2019 at 09:34 AM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.3.5
 
@@ -81,15 +81,16 @@ CREATE TABLE `institution_details` (
   `eiin` varchar(20) NOT NULL,
   `phone` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `web` varchar(255) NOT NULL
+  `web` varchar(255) NOT NULL,
+  `logo` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `institution_details`
 --
 
-INSERT INTO `institution_details` (`serial`, `name`, `address`, `estd`, `eiin`, `phone`, `email`, `web`) VALUES
-(1, 'Al-Zaber', 'Muhuripara, North Agrabad, Chittagong', '1982-10-23', '104287', '031-724489', 'alzaber3034@yahoo.com', 'www.alzaber.edu.bd');
+INSERT INTO `institution_details` (`serial`, `name`, `address`, `estd`, `eiin`, `phone`, `email`, `web`, `logo`) VALUES
+(1, 'Al-Zaber Institute', 'Muhuripara, North Agrabad, Chittagong', '1982-10-27', '104287', '031-724480', 'alzaber3034@gmail.com', 'www.alzaber.edu.bd', '../logo/instituition_logo.png');
 
 -- --------------------------------------------------------
 

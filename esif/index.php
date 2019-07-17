@@ -32,6 +32,7 @@ require_once '../connection/connect.php';
 
 </head>
 <body>
+  <?php include "../partials/header.php"; ?>
   <?php include "navbar.php"; ?>
   <div class="container">
     <form action="new_student.php" method="post" enctype="multipart/form-data">

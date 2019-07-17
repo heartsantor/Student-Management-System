@@ -26,6 +26,7 @@ require_once '../connection/connect.php';
   </style>
 </head>
 <body>
+  <?php include "../partials/header.php"; ?>
   <?php include "navbar.php"; ?>
   <div class="container">
     <form action="" method="post" class="form-inline">
@@ -91,5 +92,6 @@ require_once '../connection/connect.php';
 
     ?>
   </div>
+  <?php mysqli_close($db); ?>
 </body>
 </html>

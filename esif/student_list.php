@@ -36,13 +36,23 @@ require_once '../connection/connect.php';
         <option value="Girls">Girls</option>
         <option value="Combined">Combined</option>
       </select>
-      <select name="group" class="form-control" required>
+      <?php
+      $class=$_SESSION['class'];
+
+      if($class=='vi'||$class='vii'||$class='viii'){
+        echo "<input type='hidden' value='Other' name='group' required>";
+      }
+      else {
+        echo '<select name="group" class="form-control" required>
         <option value="">--SELECT GROUP--</option>
         <option value="Science">Science</option>
         <option value="Commerce">Commerce</option>
         <option value="Arts">Arts</option>
         <option value="Other">Other</option>
-      </select>
+        </select>';
+      }
+      ?>
+
       <select name="shift" class="form-control" required>
         <option value="">--SELECT GROUP--</option>
         <option value="Morning">Morning</option>

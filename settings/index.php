@@ -60,8 +60,7 @@ require_once '../connection/connect.php';
           <input name="email" value="<?php echo $row['email']; ?>" class="form-control" required>
           <label>Web</label>
           <input name="web" type="text" value="<?php echo $row['web']; ?>" class="form-control" required>
-          <label>Logo</label>
-          <input type="file" name="logo" required>
+
           <br>
           <input type="submit" name="submit" value="Update" class="btn btn-primary">
         </form>
@@ -74,6 +73,7 @@ require_once '../connection/connect.php';
           <br>
           <input type="submit" name="submit_1" value="Upload" class="btn btn-primary">
         </form>
+        <br>
         <img src="<?php echo $row['logo']; ?>" width="60%">
       </div>
     </div>

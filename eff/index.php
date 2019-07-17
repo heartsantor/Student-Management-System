@@ -9,12 +9,13 @@ require_once '../connection/connect.php';
 <html>
     <head>
        <?php include "../bootstrap/bootstrap.html"; ?>
-        
+
     </head>
     <body>
+      <?php include "../partials/header.php"; ?>
       <?php include "navbar.php"; ?>
       <div class="container">
       <h1>This is the EFF Homepage</h1>
-       </div> 
+       </div>
     </body>
 </html>

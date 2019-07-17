@@ -28,6 +28,18 @@ require_once '../connection/connect.php';
 
       mysqli_query($db,"UPDATE `institution_details` SET `name`='$name',`address`='$address', `estd`='$estd',`eiin`='$eiin', `phone`='$phone', `email`='$email', `web`='$web' WHERE serial='1'");
     }
+    if(isset($_POST['submit_1']))
+    {
+      $file = $_FILES['logo']['name'];
+      $ref="instituition_logo";
+      $file=explode(".",$file);
+      $file=$ref.".".end($file);
+      $target_dir= "../logo/";
+      $target_file= $target_dir.$file;
+
+      move_uploaded_file($_FILES['logo']['tmp_name'], $target_file);
+      mysqli_query($db,"UPDATE `institution_details` SET `logo`='$target_file' WHERE serial='1'");
+    }
     $result=mysqli_query($db,"SELECT * FROM institution_details WHERE serial='1'");
     $row=mysqli_fetch_array($result);
     ?>

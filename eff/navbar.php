@@ -18,7 +18,7 @@
         {
         ?>
       <li><a href="#">Settings</a></li>
-      <li><a href="#">Global Settings</a></li>
+      <li><a href="../settings/">Global Settings</a></li>
         <?php
         }
             ?>

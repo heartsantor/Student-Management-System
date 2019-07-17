@@ -9,8 +9,9 @@
       {
         ?>
         <li><a href="../esif/">eSIF</a></li>
+        <li><a href="../eff/">Exam & Result</a></li>
         <li><a href="#">Settings</a></li>
-        <li><a href="../settings/settings.php">Global Settings</a></li>
+        <li><a href="../settings/">Global Settings</a></li>
         <?php
       }
       ?>

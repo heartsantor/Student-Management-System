@@ -77,6 +77,23 @@ require_once '../connection/connect.php';
           <input name="session" type="hidden" class="form-control" value="<?php echo $_SESSION['session'];?>">
           <input class="form-control" value="<?php echo $_SESSION['session'];?>" disabled>
 
+          <?php
+          $class=$_SESSION['class'];
+
+          if($class=='vi'||$class=='vii'||$class=='viii'){
+            echo "<input type='hidden' value='Other' name='group' required>";
+          }
+          else {
+            echo '<label>Group<span style="color:red">*</span></label>
+            <select name="group" class="form-control" required>
+            <option value="">--SELECT GROUP--</option>
+            <option value="Science">Science</option>
+            <option value="Commerce">Commerce</option>
+            <option value="Arts">Arts</option>
+            </select>';
+          }
+          ?>
+
           <label>Shift<span style="color:red">*</span></label>
           <select name="shift" class="form-control" required>
             <option value="">--SELECT SHIFT--</option>

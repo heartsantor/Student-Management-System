@@ -28,6 +28,7 @@ if(isset($_POST['submit']))
   //
   $student_religion=$_POST['religion'];
   $student_roll=mysqli_real_escape_string($db,$_POST['student_roll']);
+  $student_group=mysqli_real_escape_string($db,$_POST['group']);
 
   //
 
@@ -264,7 +265,7 @@ if(isset($_POST['submit']))
 
 
 
-  mysqli_query($db, "INSERT INTO `student`(`student_id`, `student_name`, `student_section`, `student_session`, `student_class`, `student_shift`, `student_gender`, `student_dob`, `student_blood`, `student_special_need`, `student_nid`, `student_nationality`, `student_phone`, `student_present_address`, `student_par_address`, `student_adm_date`, `student_transport`, `student_residential`, `student_photo`, `student_nid_photo`, `father_name`, `father_phone`, `father_nid`, `father_nid_photo`, `father_occupation`, `father_office`, `father_income`, `father_photo`, `mother_name`, `mother_phone`, `mother_nid`, `mother_nid_photo`, `mother_occupation`, `mother_income`, `mother_office`, `mother_photo`,`student_religion`, `student_roll`) VALUES ('$student_id','$student_name','$section','$session','$class','$shift','$gender','$dob','$blood_group','$special_need','$student_nid','$nationality','$phone','$present_address','$parm_address','$date_of_admission','$transport','$residential','$student_photo','$student_nid_photo','$father_name','$father_phone','$father_nid','$father_nid_photo','$father_occupation','$father_office','$father_income','$father_photo','$mother_name','$mother_phone','$mother_nid','$mother_nid_photo','$mother_occupation','$mother_income','$mother_office','$mother_photo','$student_religion','$student_roll')");
+  mysqli_query($db, "INSERT INTO `student`(`student_id`, `student_name`, `student_section`, `student_session`, `student_class`, `student_shift`, `student_gender`, `student_dob`, `student_blood`, `student_special_need`, `student_nid`, `student_nationality`, `student_phone`, `student_present_address`, `student_par_address`, `student_adm_date`, `student_transport`, `student_residential`, `student_photo`, `student_nid_photo`, `father_name`, `father_phone`, `father_nid`, `father_nid_photo`, `father_occupation`, `father_office`, `father_income`, `father_photo`, `mother_name`, `mother_phone`, `mother_nid`, `mother_nid_photo`, `mother_occupation`, `mother_income`, `mother_office`, `mother_photo`,`student_religion`, `student_roll`,`student_group`) VALUES ('$student_id','$student_name','$section','$session','$class','$shift','$gender','$dob','$blood_group','$special_need','$student_nid','$nationality','$phone','$present_address','$parm_address','$date_of_admission','$transport','$residential','$student_photo','$student_nid_photo','$father_name','$father_phone','$father_nid','$father_nid_photo','$father_occupation','$father_office','$father_income','$father_photo','$mother_name','$mother_phone','$mother_nid','$mother_nid_photo','$mother_occupation','$mother_income','$mother_office','$mother_photo','$student_religion','$student_roll','$student_group')");
 
 
   $sub_res=mysqli_query($db,"SELECT * FROM subject WHERE class_id='$class' AND religion='0' AND optional_type1='0' AND optional_type2='0' AND elective='0' AND science='0' AND commerce='0' AND arts='0'");

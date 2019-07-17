@@ -48,7 +48,6 @@ require_once '../connection/connect.php';
         <option value="Science">Science</option>
         <option value="Commerce">Commerce</option>
         <option value="Arts">Arts</option>
-        <option value="Other">Other</option>
         </select>';
       }
       ?>

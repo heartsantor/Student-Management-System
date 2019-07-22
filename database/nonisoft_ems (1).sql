@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2019 at 09:34 AM
+-- Generation Time: Jul 22, 2019 at 11:18 AM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.3.5
 
@@ -90,7 +90,7 @@ CREATE TABLE `institution_details` (
 --
 
 INSERT INTO `institution_details` (`serial`, `name`, `address`, `estd`, `eiin`, `phone`, `email`, `web`, `logo`) VALUES
-(1, 'Al-Zaber Institute', 'Muhuripara, North Agrabad, Chittagong', '1982-10-27', '104287', '031-724480', 'alzaber3034@gmail.com', 'www.alzaber.edu.bd', '../logo/instituition_logo.png');
+(1, 'à¦†à¦² à¦œà¦¾à¦¬à§‡à¦°', 'Muhuripara, North Agrabad, Chittagong', '1982-10-27', '104287', '031-724480', 'alzaber3034@gmail.com', 'www.alzaber.edu.bd', '../logo/instituition_logo.png');
 
 -- --------------------------------------------------------
 
@@ -192,7 +192,11 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`student_serial`, `student_id`, `student_name`, `student_section`, `student_session`, `student_class`, `student_shift`, `student_roll`, `student_group`, `student_gender`, `student_dob`, `student_blood`, `student_religion`, `student_special_need`, `student_nid`, `student_nationality`, `student_phone`, `student_present_address`, `student_par_address`, `student_adm_date`, `student_transport`, `student_residential`, `student_photo`, `student_nid_photo`, `father_name`, `father_phone`, `father_nid`, `father_nid_photo`, `father_occupation`, `father_office`, `father_income`, `father_photo`, `mother_name`, `mother_phone`, `mother_nid`, `mother_nid_photo`, `mother_occupation`, `mother_income`, `mother_office`, `mother_photo`) VALUES
-(1, 'S00001', 'Montasirul Alam', 'Boys', '2018', 'viii', 'Day', '1', 'Other', 'Male', '2006-05-01', 'B +ve', 'Islam', 'No', '123-232-232', 'Bangladeshi', 'No', 'Rahamatganja', 'Rahamatganja 2', '2019-07-16', 'No', 'No', '../student_photo/S00001.jpg', '../student_nid_photo/nid-S00001.png', 'Md Manjurul Islam', '01819881188', '22312-2321', '../student_guardian_nid/f-nid-S00001.jpg', 'Teacher', 'Anderkilla', '50000', '../student_guardian/f-S00001.jpg', 'Nargis Akter', '01919191919', '22332-1232', '../student_guardian_nid/m-nid-S00001.jpg', 'House Wife', '123', 'GEC', '../student_guardian/m-S00001.j');
+(1, 'S00001', 'Montasirul Alam', 'Boys', '2018', 'viii', 'Day', '1', 'Other', 'Male', '2006-05-01', 'B +ve', 'Islam', 'No', '123-232-232', 'Bangladeshi', 'No', 'Rahamatganja', 'Rahamatganja 2', '2019-07-16', 'No', 'No', '../student_photo/S00001.jpg', '../student_nid_photo/nid-S00001.png', 'Md Manjurul Islam', '01819881188', '22312-2321', '../student_guardian_nid/f-nid-S00001.jpg', 'Teacher', 'Anderkilla', '50000', '../student_guardian/f-S00001.jpg', 'Nargis Akter', '01919191919', '22332-1232', '../student_guardian_nid/m-nid-S00001.jpg', 'House Wife', '123', 'GEC', '../student_guardian/m-S00001.j'),
+(2, 'S00002', 'Simanta Paul', 'Boys', '2018', 'viii', 'Day', '2', 'Other', 'Male', '2016-10-01', 'B +ve', 'Hindu', 'No', '12312312', 'Bangladeshi', '01521487880', 'fdsafas', 'fsdafasfd', '2019-07-17', 'No', 'No', '../student_photo/S00002.png', '../student_nid_photo/nid-S00002.png', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(6, 'S00003', 'Simanta Paul', 'Boys', '2018', 'ix', 'Day', '1', 'Science', 'Male', '1996-02-06', 'B +ve', 'Hindu', 'No', '321312', 'Bangladeshi', '01521-487880', 'dasd', 'sadsa', '2019-07-22', 'No', 'No', '../student_photo/S00003.png', '../student_nid_photo/nid-S00003.png', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(7, 'S00007', 'Simanta Paul', 'Girls', '2018', 'ix', 'Day', '1', 'Science', 'Male', '2019-07-08', 'O +ve', 'Islam', 'No', '12312312', 'Bangladeshi', '01812711248', 'dd', 'sadasd', '2019-07-22', 'No', 'No', '../student_photo/S00007.png', '../student_nid_photo/nid-S00007.png', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(8, 'S00008', 'Simanta Paul', 'Boys', '2018', 'ix', 'Day', '3', 'Science', 'Male', '2019-07-18', 'O -ve', 'Islam', 'No', '12312312', 'Bangladeshi', 'No', 'sadsa', 'sdasa', '2019-07-22', 'No', 'No', '../student_photo/S00008.png', '../student_nid_photo/nid-S00008.png', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -289,7 +293,21 @@ INSERT INTO `subject` (`subject_serial`, `subject_id`, `subject_name`, `subject_
 (67, '134_viii', 'Agricultural Science', '134', 'viii', 1, 0, 0, 0, 0, 0, 0),
 (68, '151_vi', 'Home Science', '151', 'vi', 1, 0, 0, 0, 0, 0, 0),
 (69, '151_vii', 'Home Science', '151', 'vii', 1, 0, 0, 0, 0, 0, 0),
-(70, '151_viii', 'Home Science', '151', 'viii', 1, 0, 0, 0, 0, 0, 0);
+(70, '151_viii', 'Home Science', '151', 'viii', 1, 0, 0, 0, 0, 0, 0),
+(71, '150_ix', 'Bangladesh & Global Studies', '150', 'ix', 0, 0, 0, 1, 1, 0, 0),
+(72, '150_x', 'Bangladesh & Global Studies', '150', 'x', 0, 0, 0, 1, 1, 0, 0),
+(73, '127_ix', 'Science', '127', 'ix', 0, 0, 0, 1, 0, 1, 1),
+(74, '127_x', 'Science', '127', 'x', 0, 0, 0, 1, 0, 1, 1),
+(75, '136_ix', 'Physics', '136', 'ix', 0, 0, 0, 1, 1, 0, 0),
+(76, '136_x', 'Physics', '136', 'x', 0, 0, 0, 1, 1, 0, 0),
+(77, '137_ix', 'Chemistry', '137', 'ix', 0, 0, 0, 1, 1, 0, 0),
+(78, '137_x', 'Chemistry', '137', 'x', 0, 0, 0, 1, 1, 0, 0),
+(79, '138_ix', 'Biology', '138', 'ix', 0, 1, 0, 0, 1, 0, 0),
+(80, '138_x', 'Biology', '138', 'x', 0, 1, 0, 0, 1, 0, 0),
+(81, '126_ix', 'Higher Mathematics', '126', 'ix', 0, 1, 0, 0, 1, 0, 0),
+(82, '126_x', 'Higher Mathematics', '126', 'x', 0, 1, 0, 0, 1, 0, 0),
+(83, '156_ix', 'Career Education', '156', 'ix', 0, 0, 0, 0, 0, 0, 0),
+(84, '156_x', 'Career Education', '156', 'x', 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -318,7 +336,7 @@ CREATE TABLE `subject_student` (
 
 INSERT INTO `subject_student` (`subject_student_serial`, `subject_student_id`, `subject_student_code`, `class_id`, `session_name`, `religion`, `elective`, `optional_type1`, `optional_type2`, `science`, `commerce`, `arts`) VALUES
 (1, 'S00001', '111', 'viii', '2018', 1, 0, 0, 0, 0, 0, 0),
-(2, 'S00001', '134', 'vii', '2018', 0, 0, 1, 0, 0, 0, 0),
+(2, 'S00001', '134', 'viii', '2018', 0, 0, 1, 0, 0, 0, 0),
 (13, 'S00001', '101', 'viii', '2018', 0, 0, 0, 0, 0, 0, 0),
 (14, 'S00001', '102', 'viii', '2018', 0, 0, 0, 0, 0, 0, 0),
 (15, 'S00001', '107', 'viii', '2018', 0, 0, 0, 0, 0, 0, 0),
@@ -328,7 +346,55 @@ INSERT INTO `subject_student` (`subject_student_serial`, `subject_student_id`, `
 (19, 'S00001', '147', 'viii', '2018', 0, 0, 0, 0, 0, 0, 0),
 (20, 'S00001', '155', 'viii', '2018', 0, 0, 0, 0, 0, 0, 0),
 (21, 'S00001', '127', 'viii', '2018', 0, 0, 0, 0, 0, 0, 0),
-(22, 'S00001', '150', 'viii', '2018', 0, 0, 0, 0, 0, 0, 0);
+(22, 'S00001', '150', 'viii', '2018', 0, 0, 0, 0, 0, 0, 0),
+(23, 'S00002', '101', 'viii', '2018', 0, 0, 0, 0, 0, 0, 0),
+(24, 'S00002', '102', 'viii', '2018', 0, 0, 0, 0, 0, 0, 0),
+(25, 'S00002', '107', 'viii', '2018', 0, 0, 0, 0, 0, 0, 0),
+(26, 'S00002', '108', 'viii', '2018', 0, 0, 0, 0, 0, 0, 0),
+(27, 'S00002', '109', 'viii', '2018', 0, 0, 0, 0, 0, 0, 0),
+(28, 'S00002', '154', 'viii', '2018', 0, 0, 0, 0, 0, 0, 0),
+(29, 'S00002', '147', 'viii', '2018', 0, 0, 0, 0, 0, 0, 0),
+(30, 'S00002', '155', 'viii', '2018', 0, 0, 0, 0, 0, 0, 0),
+(31, 'S00002', '127', 'viii', '2018', 0, 0, 0, 0, 0, 0, 0),
+(32, 'S00002', '150', 'viii', '2018', 0, 0, 0, 0, 0, 0, 0),
+(33, 'S00002', '112', 'viii', '2018', 1, 0, 0, 0, 0, 0, 0),
+(34, 'S00002', '134', 'viii', '2018', 0, 0, 1, 0, 0, 0, 0),
+(66, 'S00003', '101', 'ix', '2018', 0, 0, 0, 0, 0, 0, 0),
+(67, 'S00003', '102', 'ix', '2018', 0, 0, 0, 0, 0, 0, 0),
+(68, 'S00003', '107', 'ix', '2018', 0, 0, 0, 0, 0, 0, 0),
+(69, 'S00003', '108', 'ix', '2018', 0, 0, 0, 0, 0, 0, 0),
+(70, 'S00003', '109', 'ix', '2018', 0, 0, 0, 0, 0, 0, 0),
+(71, 'S00003', '154', 'ix', '2018', 0, 0, 0, 0, 0, 0, 0),
+(72, 'S00003', '147', 'ix', '2018', 0, 0, 0, 0, 0, 0, 0),
+(73, 'S00003', '156', 'ix', '2018', 0, 0, 0, 0, 0, 0, 0),
+(74, 'S00003', '112', 'ix', '2018', 1, 0, 0, 0, 0, 0, 0),
+(75, 'S00003', '126', 'ix', '2018', 0, 1, 0, 0, 1, 0, 0),
+(76, 'S00003', '138', 'ix', '2018', 0, 0, 0, 1, 1, 0, 0),
+(77, 'S00007', '101', 'ix', '2018', 0, 0, 0, 0, 0, 0, 0),
+(78, 'S00007', '102', 'ix', '2018', 0, 0, 0, 0, 0, 0, 0),
+(79, 'S00007', '107', 'ix', '2018', 0, 0, 0, 0, 0, 0, 0),
+(80, 'S00007', '108', 'ix', '2018', 0, 0, 0, 0, 0, 0, 0),
+(81, 'S00007', '109', 'ix', '2018', 0, 0, 0, 0, 0, 0, 0),
+(82, 'S00007', '154', 'ix', '2018', 0, 0, 0, 0, 0, 0, 0),
+(83, 'S00007', '147', 'ix', '2018', 0, 0, 0, 0, 0, 0, 0),
+(84, 'S00007', '156', 'ix', '2018', 0, 0, 0, 0, 0, 0, 0),
+(85, 'S00007', '111', 'ix', '2018', 1, 0, 0, 0, 0, 0, 0),
+(86, 'S00007', '126', 'ix', '2018', 0, 1, 0, 0, 1, 0, 0),
+(87, 'S00007', '138', 'ix', '2018', 0, 0, 0, 1, 1, 0, 0),
+(88, 'S00008', '101', 'ix', '2018', 0, 0, 0, 0, 0, 0, 0),
+(89, 'S00008', '102', 'ix', '2018', 0, 0, 0, 0, 0, 0, 0),
+(90, 'S00008', '107', 'ix', '2018', 0, 0, 0, 0, 0, 0, 0),
+(91, 'S00008', '108', 'ix', '2018', 0, 0, 0, 0, 0, 0, 0),
+(92, 'S00008', '109', 'ix', '2018', 0, 0, 0, 0, 0, 0, 0),
+(93, 'S00008', '154', 'ix', '2018', 0, 0, 0, 0, 0, 0, 0),
+(94, 'S00008', '147', 'ix', '2018', 0, 0, 0, 0, 0, 0, 0),
+(95, 'S00008', '156', 'ix', '2018', 0, 0, 0, 0, 0, 0, 0),
+(96, 'S00008', '111', 'ix', '2018', 1, 0, 0, 0, 0, 0, 0),
+(97, 'S00008', '150', 'ix', '2018', 0, 1, 0, 0, 1, 0, 0),
+(98, 'S00008', '136', 'ix', '2018', 0, 1, 0, 0, 1, 0, 0),
+(99, 'S00008', '137', 'ix', '2018', 0, 1, 0, 0, 1, 0, 0),
+(100, 'S00008', '126', 'ix', '2018', 0, 1, 0, 0, 1, 0, 0),
+(101, 'S00008', '138', 'ix', '2018', 0, 0, 0, 1, 1, 0, 0);
 
 --
 -- Indexes for dumped tables
@@ -423,19 +489,19 @@ ALTER TABLE `session`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `student_serial` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `student_serial` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
-  MODIFY `subject_serial` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `subject_serial` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT for table `subject_student`
 --
 ALTER TABLE `subject_student`
-  MODIFY `subject_student_serial` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `subject_student_serial` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

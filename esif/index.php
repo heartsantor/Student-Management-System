@@ -85,7 +85,7 @@ require_once '../connection/connect.php';
           }
           else {
             echo '<label>Group<span style="color:red">*</span></label>
-            <select name="group" class="form-control" required>
+            <select onchange="group_selected()" name="group" class="form-control" required>
             <option value="">--SELECT GROUP--</option>
             <option value="Science">Science</option>
             <option value="Commerce">Commerce</option>
@@ -197,7 +197,14 @@ require_once '../connection/connect.php';
           <select class="form-control" name="optional_type1" required>
             <option value="">--SELECT OPTIONAL--</option>
             <?php
-            $optional_res=mysqli_query($db,"SELECT * FROM subject WHERE class_id='".$_SESSION['class']."' AND optional_type1='1'");
+            if($class=='vi'||$class=='vii'$class=='viii')
+            {
+              $optional_res=mysqli_query($db,"SELECT * FROM subject WHERE class_id='".$_SESSION['class']."' AND optional_type1='1'");
+            }
+            else {
+              $optional_res=mysqli_query($db,"SELECT * FROM subject WHERE class_id='".$_SESSION['class']."' AND optional_type2='1'");
+            }
+
             while($optional_row=mysqli_fetch_array($optional_res))
             {
               echo "<option value='".$optional_row['subject_code']."'>".$optional_row['subject_name']." (".$optional_row['subject_code'].")</option>";

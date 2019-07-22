@@ -85,7 +85,7 @@ require_once '../connection/connect.php';
           }
           else {
             echo '<label>Group<span style="color:red">*</span></label>
-            <select onchange="group_selected()" name="group" class="form-control" required>
+            <select onchange="group_selected(this.value)" name="group" class="form-control" required>
             <option value="">--SELECT GROUP--</option>
             <option value="Science">Science</option>
             <option value="Commerce">Commerce</option>
@@ -193,11 +193,17 @@ require_once '../connection/connect.php';
         <div class="col-sm-6">
           <label>Religion</label>
           <div id="demo"></div>
+          <label>Elective</label>
+          <select name="elective_subject" class="form-control">
+            <option value="">--Subject--</option>
+            <div id="show_subject"></div>
+          </select>
+
           <label>Optional Subject:</label>
           <select class="form-control" name="optional_type1" required>
             <option value="">--SELECT OPTIONAL--</option>
             <?php
-            if($class=='vi'||$class=='vii'$class=='viii')
+            if($class=='vi'||$class=='vii'||$class=='viii')
             {
               $optional_res=mysqli_query($db,"SELECT * FROM subject WHERE class_id='".$_SESSION['class']."' AND optional_type1='1'");
             }
@@ -273,25 +279,44 @@ require_once '../connection/connect.php';
 </body>
 <script>
 function myFunction() {
-    var x = document.getElementById("religion").value;
-    if(x=='Islam')
-    {
-      document.getElementById("demo").innerHTML = "<input type='text' class='form-control' disabled value='Religious Studies Islam (111)'><input type='hidden' name='religion_sub' value='111'>";
-    }
-    else if(x=='Hindu')
-    {
-      document.getElementById("demo").innerHTML = "<input type='text' class='form-control' disabled value='Religious Studies Hindu (112)'><input type='hidden' name='religion_sub' value='112'>";
-    }
-    else if(x=='Buddhist')
-    {
-      document.getElementById("demo").innerHTML = "<input type='text' class='form-control' disabled value='Religious Studies Buddha (113)'><input type='hidden' name='religion_sub' value='113'>";
-
-    }
-    else if(x=='Christian')
-    {
-      document.getElementById("demo").innerHTML = "<input type='text' class='form-control' disabled value='Religious Studies Christian (114)'><input type='hidden' name='religion_sub' value='114'>";
-    }
+  var x = document.getElementById("religion").value;
+  if(x=='Islam')
+  {
+    document.getElementById("demo").innerHTML = "<input type='text' class='form-control' disabled value='Religious Studies Islam (111)'><input type='hidden' name='religion_sub' value='111'>";
   }
+  else if(x=='Hindu')
+  {
+    document.getElementById("demo").innerHTML = "<input type='text' class='form-control' disabled value='Religious Studies Hindu (112)'><input type='hidden' name='religion_sub' value='112'>";
+  }
+  else if(x=='Buddhist')
+  {
+    document.getElementById("demo").innerHTML = "<input type='text' class='form-control' disabled value='Religious Studies Buddha (113)'><input type='hidden' name='religion_sub' value='113'>";
+
+  }
+  else if(x=='Christian')
+  {
+    document.getElementById("demo").innerHTML = "<input type='text' class='form-control' disabled value='Religious Studies Christian (114)'><input type='hidden' name='religion_sub' value='114'>";
+  }
+}
+
+function group_selected(group){
+  if (group == "") {
+    document.getElementById("show_subject").innerHTML = "";
+    return;
+  }
+  else if(group == "Science") {
+    document.getElementById("show_subject").innerHTML = "<option>Science Selected</option>";
+    return;
+  }
+  else if(group == "Commerce") {
+    document.getElementById("show_subject").innerHTML = "<option>Commerce Selected</option>";
+    return;
+  }
+  else if(group == "Arts") {
+    document.getElementById("show_subject").innerHTML = "<option>Arts Selected</option>";
+    return;
+  }
+}
 </script>
 
 </html>

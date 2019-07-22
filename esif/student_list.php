@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!$_SESSION['role']){
-  header("location:../index.");
+  header("location:../index.php");
 }
 require_once '../connection/connect.php';
 ?>
@@ -25,6 +25,8 @@ require_once '../connection/connect.php';
   }
   @media print {
     .myDivToPrint {
+      size: A4;
+      margin: 0;
       background-color: white;
       height: 100%;
       width: 100%;

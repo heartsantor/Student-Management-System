@@ -1,3 +1,4 @@
+<a onclick="window.print()" target="_blank">Print</a>
 <table class="table table-bordered table-condensed">
   <tr>
     <th>SL</th>

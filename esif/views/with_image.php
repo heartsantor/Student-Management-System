@@ -49,7 +49,7 @@ while($row=mysqli_fetch_array($result))
   $sub_option_row=mysqli_fetch_array($sub_option_res);
   echo $sub_option_row['subject_student_code'];
   echo "<br>";
-  echo $row['father_phone']."</td>";
+  echo $row['student_phone']."</td>";
   echo "<td style='padding:0px'><img src='".$row['student_photo']."' width='100%'></td>";
 
 

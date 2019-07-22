@@ -7,7 +7,7 @@ if(isset($_GET['group'])){
   $class=$_SESSION['class'];
   ?>
 <label>Compulosory</label>
-<select name="compulsory_sub" class="form-control" required>
+<select name="compulsory_sub" class="form-control">
   <?php
   if($group=='Science')
   {

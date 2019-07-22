@@ -4,7 +4,7 @@ header( "refresh:3;url=index.php" );
 include "../bootstrap/bootstrap.html";
 if(isset($_POST['submit']))
 {
-//
+  //
   $student_id=$_POST['student_id'];
   $student_name=mysqli_real_escape_string($db,$_POST['full_name']);
   $section=$_POST['section'];
@@ -284,8 +284,26 @@ if(isset($_POST['submit']))
     $optional_type1=$_POST['optional_type1'];
     mysqli_query($db,"INSERT INTO `subject_student`(`subject_student_id`, `subject_student_code`,`optional_type1`,`class_id`,`session_name`) VALUES ('$student_id','$optional_type1','1','$class','$session')");
   }
+  else if($class=='ix' || $class=='x')
+  {
+    $optional_type2=$_POST['optional_type2'];
+    $compulsory_sub=$_POST['compulsory_sub'];
 
+    if($student_group=='Science'){
 
+      $sub_elective=mysqli_query($db,"SELECT * FROM subject WHERE class_id='$class' AND elective='1' AND science='1'");
+
+      while($sub_elective_row=mysqli_fetch_array($sub_elective))
+      {
+
+        $subject_code=$sub_elective_row['subject_code'];
+        //echo $subject_code;
+        mysqli_query($db,"INSERT INTO `subject_student`(`subject_student_id`, `subject_student_code`,`class_id`,`session_name`,`elective`,`science`) VALUES ('$student_id','$subject_code','$class','$session','1','1')");
+      }
+      mysqli_query($db,"INSERT INTO `subject_student`(`subject_student_id`, `subject_student_code`,`elective`,`class_id`,`session_name`,`science`) VALUES ('$student_id','$compulsory_sub','1','$class','$session','1')");
+      mysqli_query($db,"INSERT INTO `subject_student`(`subject_student_id`, `subject_student_code`,`optional_type2`,`class_id`,`session_name`,`science`) VALUES ('$student_id','$optional_type2','1','$class','$session','1')");
+    }
+  }
 }
 
 
@@ -335,5 +353,5 @@ function compress_image($source_file, $target_file, $nwidth, $nheight, $quality)
       }
     }
   }
-  echo "<div class='alert alert-success'>Member Added Successfully! Redirecting.....</div>";
+  echo "<div class='alert alert-success'>Student Added Successfully! Redirecting.....</div>";
   ?>

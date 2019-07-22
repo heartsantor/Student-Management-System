@@ -210,7 +210,6 @@ require_once '../connection/connect.php';
             }
           }
           else {
-            echo "<div id='show_optional2_subject'></div>";
           }
           ?>
         </select>

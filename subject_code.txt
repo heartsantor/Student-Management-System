@@ -91,3 +91,5 @@ INSERT INTO `subject`(`subject_id`, `subject_name`, `subject_code`, `class_id`) 
 ('151_vi','Home Science','151','vi'),
 ('151_vii','Home Science','151','vii'),
 ('151_viii','Home Science','151','viii'),
+
+INSERT INTO `subject` (`subject_serial`, `subject_id`, `subject_name`, `subject_code`, `class_id`, `optional_type1`, `optional_type2`, `religion`, `elective`, `science`, `commerce`, `arts`) VALUES (NULL, '138_ix', 'Biology', '138', 'ix', '0', '0', '0', '1', '1', '0', '0'), (NULL, '138_x', 'Biology', '138', 'x', '0', '0', '0', '1', '1', '0', '0');

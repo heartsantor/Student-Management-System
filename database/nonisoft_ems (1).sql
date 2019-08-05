@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 05, 2019 at 09:47 AM
+-- Generation Time: Aug 05, 2019 at 11:24 AM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.3.5
 
@@ -303,14 +303,28 @@ INSERT INTO `subject` (`subject_serial`, `subject_id`, `subject_name`, `subject_
 (76, '136_x', 'Physics', '136', 'x', 0, 0, 0, 1, 1, 0, 0, 0),
 (77, '137_ix', 'Chemistry', '137', 'ix', 0, 0, 0, 1, 1, 0, 0, 0),
 (78, '137_x', 'Chemistry', '137', 'x', 0, 0, 0, 1, 1, 0, 0, 0),
-(79, '138_ix', 'Biology', '138', 'ix', 0, 1, 0, 0, 1, 0, 0, 1),
-(80, '138_x', 'Biology', '138', 'x', 0, 1, 0, 0, 1, 0, 0, 1),
-(81, '126_ix', 'Higher Mathematics', '126', 'ix', 0, 1, 0, 0, 1, 0, 0, 1),
-(82, '126_x', 'Higher Mathematics', '126', 'x', 0, 1, 0, 0, 1, 0, 0, 1),
+(79, '138_ix', 'Biology', '138', 'ix', 0, 1, 0, 1, 1, 0, 0, 1),
+(80, '138_x', 'Biology', '138', 'x', 0, 1, 0, 1, 1, 0, 0, 1),
+(81, '126_ix', 'Higher Mathematics', '126', 'ix', 0, 1, 0, 1, 1, 0, 0, 1),
+(82, '126_x', 'Higher Mathematics', '126', 'x', 0, 1, 0, 1, 1, 0, 0, 1),
 (83, '156_ix', 'Career Education', '156', 'ix', 0, 0, 0, 0, 0, 0, 0, 0),
 (84, '156_x', 'Career Education', '156', 'x', 0, 0, 0, 0, 0, 0, 0, 0),
-(85, '134_ix', 'Agricultural Science', '134', 'ix', 0, 1, 0, 0, 1, 0, 0, 0),
-(86, '134_x', 'Agricultural Science', '134', 'x', 0, 1, 0, 0, 1, 0, 0, 0);
+(85, '134_ix', 'Agricultural Science', '134', 'ix', 0, 1, 0, 0, 1, 1, 0, 0),
+(86, '134_x', 'Agricultural Science', '134', 'x', 0, 1, 0, 0, 1, 1, 0, 0),
+(87, '146_ix', 'Accounting', '146', 'ix', 0, 0, 0, 1, 0, 1, 0, 0),
+(88, '146_x', 'Accounting', '146', 'x', 0, 0, 0, 1, 0, 1, 0, 0),
+(89, '143_ix', 'Business Entrepreneurship', '143', 'ix', 0, 0, 0, 1, 0, 1, 0, 0),
+(90, '143_x', 'Business Entrepreneurship', '143', 'x', 0, 0, 0, 1, 0, 1, 0, 0),
+(91, '152_ix', 'Finance & Banking', '152', 'ix', 0, 1, 0, 1, 0, 1, 0, 0),
+(92, '152_x', 'Finance & Banking', '152', 'x', 0, 1, 0, 1, 0, 1, 0, 0),
+(93, '153_ix', 'History of Bangladesh and World Civilization', '153', 'ix', 0, 0, 0, 1, 0, 0, 1, 0),
+(94, '153_x', 'History of Bangladesh and World Civilization', '153', 'x', 0, 0, 0, 1, 0, 0, 1, 0),
+(95, '140_ix', 'Civics & Citizenship', '140', 'ix', 0, 0, 0, 1, 0, 0, 1, 0),
+(96, '140_x', 'Civics & Citizenship', '140', 'x', 0, 0, 0, 1, 0, 0, 1, 0),
+(97, '110_ix', 'Geography & Environment ', '110', 'ix', 0, 1, 0, 1, 0, 0, 1, 0),
+(98, '110_x', 'Geography & Environment', '110', 'x', 0, 1, 0, 1, 0, 0, 1, 0),
+(99, '141_ix', 'Economics', '141', 'ix', 0, 1, 0, 1, 0, 0, 1, 0),
+(100, '141_x', 'Economics', '141', 'x', 0, 1, 0, 1, 0, 0, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -498,7 +512,7 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
-  MODIFY `subject_serial` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `subject_serial` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT for table `subject_student`

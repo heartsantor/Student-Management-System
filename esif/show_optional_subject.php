@@ -22,6 +22,33 @@ if(isset($_GET['group'])){
       echo "<option value='".$row_compulsory['subject_code']."'>".$row_compulsory['subject_name']."   (".$row_compulsory['subject_code'].")</option>";
     }
   }
+  else if($group=='Commerce')
+  {
+    $res_compulsory=mysqli_query($db,"SELECT * FROM subject WHERE class_id='$class' AND optional_type2='1' AND commerce='1'");
+    if($res_compulsory->num_rows>2)
+    {
+      echo "<option value=''>--SELECT COMPULSORY--</option>";
+    }
+    while($row_compulsory=mysqli_fetch_array($res_compulsory))
+    {
+      if($selected==$row_compulsory['subject_code']) continue;
+      echo "<option value='".$row_compulsory['subject_code']."'>".$row_compulsory['subject_name']."   (".$row_compulsory['subject_code'].")</option>";
+    }
+  }
+
+  else if($group=='Arts')
+  {
+    $res_compulsory=mysqli_query($db,"SELECT * FROM subject WHERE class_id='$class' AND optional_type2='1' AND arts='1'");
+    if($res_compulsory->num_rows>2)
+    {
+      echo "<option value=''>--SELECT COMPULSORY--</option>";
+    }
+    while($row_compulsory=mysqli_fetch_array($res_compulsory))
+    {
+      if($selected==$row_compulsory['subject_code']) continue;
+      echo "<option value='".$row_compulsory['subject_code']."'>".$row_compulsory['subject_name']."   (".$row_compulsory['subject_code'].")</option>";
+    }
+  }
 }
 ?>
 </select>

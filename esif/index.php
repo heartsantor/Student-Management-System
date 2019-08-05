@@ -314,17 +314,17 @@ function group_selected(group){
 
 function make_elective(sub_code){
   if(sub_code == ""){
-    document.getElementById("show_compulsory").innerHTML = "";
+    document.getElementById("show_optional").innerHTML = "";
   }
   else {
     var group = document.getElementById("group").value;
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("show_compulsory").innerHTML = this.responseText;
+        document.getElementById("show_optional").innerHTML = this.responseText;
       }
     };
-    xmlhttp.open("GET","show_compulsory_subject.php?code="+sub_code+"&group="+group,true);
+    xmlhttp.open("GET","show_optional_subject.php?code="+sub_code+"&group="+group,true);
     xmlhttp.send();
   }
 }

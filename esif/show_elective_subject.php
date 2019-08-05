@@ -22,13 +22,13 @@ if(isset($_GET['group'])){
   }
 }
 ?>
-<label>Optional</label>
+<label>Compulsory</label>
 <select name="optional_type2" onchange="make_elective(this.value)" class="form-control" required>
-  <option value="">--SELECT OPTIONAL--</option>
+  <option value="">--SELECT COMPULSORY--</option>
   <?php
   if($group=='Science')
   {
-    $res_optional=mysqli_query($db,"SELECT * FROM subject WHERE class_id='$class' AND optional_type2='1' AND science='1'");
+    $res_optional=mysqli_query($db,"SELECT * FROM subject WHERE class_id='$class' AND optional_type2='1' AND science='1' AND compulsory='1'");
     while($row_optional=mysqli_fetch_array($res_optional))
     {
       echo "<option value='".$row_optional['subject_code']."'>".$row_optional['subject_name']."   (".$row_optional['subject_code'].")</option>";
@@ -36,4 +36,4 @@ if(isset($_GET['group'])){
   }
   ?>
 </select>
-<div id="show_compulsory"></div>
+<div id="show_optional"></div>

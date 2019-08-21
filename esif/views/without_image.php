@@ -1,4 +1,4 @@
-<a onclick="window.print()" target="_blank">Print</a>
+<br><a href="print/without_image.php?shift=<?php echo $shift; ?>&section=<?php echo $section; ?>&group=<?php echo $group;?>" target="_blank" class="btn btn-success btn-sm">Print</a><br><br>
 <table class="table table-bordered table-condensed">
   <tr>
     <th>SL</th>

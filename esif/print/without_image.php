@@ -37,6 +37,19 @@ $html = '';
 $html .= "<html><head>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
 <style>
+body {
+  font-family: Calibri;
+}
+th {
+  background-color: #b2beb5;
+  padding: 5px;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 2px;
+  width: 100%;
+}
 @page { margin: 0.5in ;}
 </style>
 </head>";
@@ -54,7 +67,7 @@ $html .= "<center>Student Profile of <b>".date('d F, Y')."</b>";
 $html .= "<center>Session: <b>".$session."</b>, Class: <b>".$class_row['class_name']."</b>,  Section: <b>".$section."</b>, ";
 $html .= "Group: <b>".$group."</b>, Student: <b>".$total_student."</b></center>";
 
-$html .="<table border='1' width='100%'>
+$html .="<table>
 <tr>
 <th>SL</th>
 <th>ID</th>

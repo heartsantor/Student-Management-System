@@ -19,7 +19,7 @@ $result_ind=mysqli_query($db,"SELECT * FROM `student` WHERE `student_session`='$
 while ($row_ind=mysqli_fetch_array($result_ind)) {
   echo "<tr>";
   echo "<td>".$row_ind['student_name']."</td>";
-  echo "<td>".$row_ind['student_id']."</td>";
+  echo "<td><a href='print/all_form_individual_pdf.php?id=".$row_ind['student_id']."'>".$row_ind['student_id']."</a></td>";
   echo "</tr>";
 
   // code...

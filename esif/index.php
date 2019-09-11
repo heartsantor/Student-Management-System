@@ -36,9 +36,10 @@ require_once '../connection/connect.php';
   <?php include "navbar.php"; ?>
   <div class="container">
     <form action="new_student.php" method="post" enctype="multipart/form-data">
+      <h5><span style="color:red">*Required Fields</span></h5>
       <div class="row">
         <div class="col-sm-6">
-          <h5><span style="color:red">*Required Fields</span></h5>
+
           <label>Student Full Name<span style="color:red">*</span></label>
           <input name="full_name" class="form-control" required>
           <?php

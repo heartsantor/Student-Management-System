@@ -266,6 +266,10 @@ $this->fontdata = array(
 		'R' => "Nikosh.ttf",
 		'useOTL' => 0xFF,		
 		),
+		
+    "times-new-roman" => array(
+    'R' => "times-new-roman.ttf",
+),
 
 
 /* Arabic fonts */

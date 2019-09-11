@@ -16,7 +16,7 @@
             <li><a href="">Guardian's Income Wise</a></li>
             <li><a href="">Guardian's Profession Wise</a></li>
             <li><a href="">Special Need Wise</a></li>
-            <li><a href="">Tride Wise</a></li>
+            <li><a href="">Tribe Wise</a></li>
           </ul>
         </li>
         <li class="dropdown">

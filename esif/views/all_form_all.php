@@ -1,3 +1,4 @@
+<h3>All Forms of The Class</h3><hr>
 <form action="print/all_form_all_pdf.php" method="post" target="_blank" class="form-inline">
   <select name="section" class="form-control" required>
     <option value="">--SELECT SECTION--</option>
@@ -28,3 +29,4 @@
   </select>
   <input type="submit" class="btn btn-primary" name="submit" value="Submit">
 </form>
+<hr>

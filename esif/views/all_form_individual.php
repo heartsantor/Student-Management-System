@@ -1,7 +1,9 @@
+<h3>Search for individual Student</h3><hr>
 <form action="" method="post">
   <input class="form-control" name="individual" id="individual" onkeyup="show_result(this.value)" placeholder="Search by ID, Name, Phone Number, Roll..">
   <div id="show_results"></div>
 </form>
+<hr>
 
 <script>
 function show_result(individual){

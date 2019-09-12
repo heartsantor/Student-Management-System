@@ -269,6 +269,7 @@ $this->fontdata = array(
 		
     "times-new-roman" => array(
     'R' => "times-new-roman.ttf",
+	'B' => "times-new-roman-grassetto.ttf",
 ),
 
 

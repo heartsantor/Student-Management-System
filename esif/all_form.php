@@ -54,6 +54,10 @@ require_once '../connection/connect.php';
     {
       include "views/all_form_individual.php";
     }
+    else if($view=='all')
+    {
+      include "views/all_form_all.php";
+    }
 
     ?>
 

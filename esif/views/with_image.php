@@ -1,3 +1,4 @@
+<br><a href="print/with_image_pdf.php?shift=<?php echo $shift; ?>&section=<?php echo $section; ?>&group=<?php echo $group;?>&session=<?php echo $session;?>&class=<?php echo $class;?>" target="_blank" class="btn btn-success btn-sm">Print</a><br><br>
 <table class="table table-bordered table-condensed">
   <tr>
     <th width="5%">Serial</th>

@@ -35,7 +35,7 @@ while ($row_ind=mysqli_fetch_array($result_ind)) {
   echo "<td>".$row_ind['student_roll']."</td>";
   echo "<td>".$row_ind['student_phone']."</td>";
   echo "<td><img src='".$row_ind['student_photo']."' width='50px'></td>";
-  echo "<td><a href='print/all_form_individual_pdf.php?id=".$row_ind['student_id']."' target='_blank'>View Form</a></td>";
+  echo "<td><a href='print/id_individual_pdf.php?id=".$row_ind['student_id']."' target='_blank'>View ID Card</a></td>";
   echo "</tr>";
 
   // code...

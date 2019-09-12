@@ -9,7 +9,7 @@ require_once '../connection/connect.php';
 <html>
 <head>
   <?php include "../bootstrap/bootstrap.html"; ?>
-  <title>Student List</title>
+  <title>Student ID Card</title>
   <style>
   th {
     background-color: silver;
@@ -33,11 +33,11 @@ require_once '../connection/connect.php';
     $view=$_GET['view'];
     if($view=='individual')
     {
-      include "views/all_form_individual.php";
+      include "views/id_card_individual.php";
     }
     else if($view=='all')
     {
-      include "views/all_form_all.php";
+      include "views/id_card_all.php";
     }
 
     ?>

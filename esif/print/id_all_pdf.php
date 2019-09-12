@@ -3,8 +3,15 @@ session_start();
 
 require_once "../../connection/connect.php";
 
-$id="S00001";
-$result=mysqli_query($db,"SELECT * FROM student WHERE student_id='$id'");
+$shift=$_POST['shift'];
+$section=$_POST['section'];
+$group=$_POST['group'];
+
+$class=$_SESSION['class'];
+$session=$_SESSION['session'];
+
+
+$result=mysqli_query($db,"SELECT * FROM student WHERE student_class='$class' AND student_session='$session' AND student_shift='$shift' AND student_section='$section' AND student_group='$group' ORDER BY student_roll");
 //$result=mysqli_query($db,"SELECT * FROM student WHERE 1");
 
 
@@ -74,9 +81,10 @@ while($row=mysqli_fetch_array($result))
 }
 
 
-$mpdf->SetTitle("Student ID ".$id);
+
+$mpdf->SetTitle("Student ID Cards");
 $mpdf->WriteHTML("$html");
-$file="Student_ID_".$id.".pdf";
+$file="Student_ID_Cards.pdf";
 $mpdf->Output($file, "I");
 
 ?>

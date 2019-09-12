@@ -25,6 +25,9 @@
     <th width='80px'>
       Image
     </th>
+    <th>
+      Actions
+    </th>
   </tr>
   <?php
   $count=1;
@@ -51,6 +54,7 @@ while($row=mysqli_fetch_array($result))
   echo "<br>";
   echo $row['student_phone']."</td>";
   echo "<td style='padding:0px'><img src='".$row['student_photo']."' width='100%'></td>";
+  echo "<td><a href='edit.php?id=".$student_id."'>Edit</a></td>";
 
 
 }

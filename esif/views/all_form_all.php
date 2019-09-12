@@ -1,4 +1,4 @@
-<form action="print/all_form_all_pdf.php" method="post" class="form-inline">
+<form action="print/all_form_all_pdf.php" method="post" target="_blank" class="form-inline">
   <select name="section" class="form-control" required>
     <option value="">--SELECT SECTION--</option>
     <option value="Boys">Boys</option>

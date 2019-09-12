@@ -36,23 +36,17 @@ require_once '../connection/connect.php';
   <?php include "navbar.php"; ?>
   <div class="container">
     <form action="new_student.php" method="post" enctype="multipart/form-data">
+      <?php
+      $id=$_GET['id'];
+      $result=mysqli_query($db,"SELECT * FROM student WHERE student_id='$id'");
+      $row_s=mysqli_fetch_array($result);
+       ?>
       <h5><span style="color:red">*Required Fields</span></h5>
       <div class="row">
         <div class="col-sm-6">
 
           <label>Student Full Name<span style="color:red">*</span></label>
-          <input name="full_name" class="form-control" required>
-          <?php
-          $result=mysqli_query($db,"SELECT MAX(student_serial) AS total FROM student");
-          $row=mysqli_fetch_array($result);
-          $student_id=$row['total']+1;
-          $student_id=sprintf("%05d", $student_id);
-          $student_id="S".$student_id;
-          ?>
-
-          <label>Student ID<span style="color:red">*</span></label>
-          <input class="form-control" value="<?php echo $student_id;?>" disabled style="width:300px">
-          <input type="hidden" name="student_id" class="form-control" value="<?php echo $student_id;?>" style="width:300px">
+          <input name="full_name" class="form-control" required value="<?php echo $row_s['student_name'];?>">
 
           <label>Section<span style="color:red">*</span></label>
           <select name="section" class="form-control" required>
@@ -267,7 +261,7 @@ require_once '../connection/connect.php';
       </div>
     </div>
     <br>
-    <input type="submit" name="submit" class="btn btn-primary" value="Submit">
+    <!-- <input type="submit" name="submit" class="btn btn-primary" value="Submit"> -->
     <hr>
   </form>
 </div>

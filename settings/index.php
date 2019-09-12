@@ -30,6 +30,12 @@ require_once '../connection/connect.php';
     }
     if(isset($_POST['submit_1']))
     {
+      $res_logo=mysqli_query($db,"SELECT * FROM `institution_details` WHERE `serial`='1'");
+      $row_logo=mysqli_fetch_array($res_logo);
+      if(file_exists($row_logo['logo']))
+      {
+        unlink($row_logo['logo']);
+      }
       $file = $_FILES['logo']['name'];
       $ref="instituition_logo";
       $file=explode(".",$file);

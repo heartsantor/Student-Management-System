@@ -3,20 +3,10 @@ session_start();
 
 require_once "../../connection/connect.php";
 
-$shift=$_POST['shift'];
-$section=$_POST['section'];
-$group=$_POST['group'];
-
-$class=$_SESSION['class'];
-
-$class_res=mysqli_query($db,"SELECT * FROM class WHERE class_id='$class'");
-$class_row=mysqli_fetch_array($class_res);
-
-$session=$_SESSION['session'];
-
-
-$result=mysqli_query($db,"SELECT * FROM student WHERE student_class='$class' AND student_session='$session' AND student_shift='$shift' AND student_section='$section' AND student_group='$group' ORDER BY student_roll");
+$id="S00001";
+$result=mysqli_query($db,"SELECT * FROM student WHERE student_id='$id'");
 //$result=mysqli_query($db,"SELECT * FROM student WHERE 1");
+
 
 $ins_res=mysqli_query($db,"SELECT * FROM institution_details WHERE serial='1'");
 $ins_row=mysqli_fetch_array($ins_res);
@@ -28,42 +18,42 @@ $mpdf=new mPDF('','A4','11','times-new-roman');
 
 $html = "<html>
 <head>
-  <style>
-  body
-  {
-    font-family:times-new-roman;
-    line-height: 25px;
+<style>
+body
+{
+  font-family:times-new-roman;
+  line-height: 25px;
 
-  }
-  .field-name
-  {
-    width: 150px;
-    float: left;
-    display: inline;
-  }
-  .field-value
-  {
-    float: left;
-    width: 400px;
-    display: inline;
-  }
-  .images
-  {
-    float: right;
-  }
-  .logo-div
-  {
-    width: 100px;
-    float: left;
-    display: inline;
-  }
-  .ins-div
-  {
-    text-align: center;
-    float: left;
-    display: inline;
-  }
-  </style>
+}
+.field-name
+{
+  width: 150px;
+  float: left;
+  display: inline;
+}
+.field-value
+{
+  float: left;
+  width: 400px;
+  display: inline;
+}
+.images
+{
+  float: right;
+}
+.logo-div
+{
+  width: 100px;
+  float: left;
+  display: inline;
+}
+.ins-div
+{
+  text-align: center;
+  float: left;
+  display: inline;
+}
+</style>
 </head>";
 
 $html .= "<body>";
@@ -71,14 +61,16 @@ $count=0;
 while($row=mysqli_fetch_array($result))
 {
 
-$html .= "<div class='logo-div'><img src='../../logo/instituition_logo.jpg' width='100px'></div>";
-$html .= "<div class='ins-div'>";
-$html .= "<div style='font-family:nikosh; font-size:23px'>".$ins_row['name']."</div>";
-$html .= "<div style='font-family:nikosh; font-size:18px'>".$ins_row['address']."</div>";
-$html .= "Estd: <b>".date_format(date_create($ins_row['estd']),'m/d/Y')."</b>, EIIN: <b>".$ins_row['eiin']."</b>, Phone: <b>".$ins_row['phone']."</b><br>";
-$html .= "Email: <b>".$ins_row['email']."</b>, Web: <b>".$ins_row['web']."</b><br>";
-$html .= "</div>";
+  $html .= "<div class='logo-div'><img src='../../logo/instituition_logo.jpg' width='100px'></div>";
+  $html .= "<div class='ins-div'>";
+  $html .= "<div style='font-family:nikosh; font-size:23px'>".$ins_row['name']."</div>";
+  $html .= "<div style='font-family:nikosh; font-size:18px'>".$ins_row['address']."</div>";
+  $html .= "Estd: <b>".date_format(date_create($ins_row['estd']),'m/d/Y')."</b>, EIIN: <b>".$ins_row['eiin']."</b>, Phone: <b>".$ins_row['phone']."</b><br>";
+  $html .= "Email: <b>".$ins_row['email']."</b>, Web: <b>".$ins_row['web']."</b><br>";
+  $html .= "</div>";
 
+$class_res=mysqli_query($db,"SELECT * FROM class WHERE class_id='".$row['student_class']."'");
+$class_row=mysqli_fetch_array($class_res);
 
 $html .= "
   <hr>
@@ -161,7 +153,6 @@ if(file_exists("../".$row['mother_photo'])&&$row['mother_photo']!='')
 else {
     $html .="<img src='../../unisex-avatar.png'><br><br>";
 }
-
 $html .= "</div>";
 $html .= "<div style='width:100%; padding-top: 40px'>";
 $html .= "<div style='float:left; display:inline; width:5.8in;'>";
@@ -174,14 +165,14 @@ $html .= "________________<br>
 $html .= "</div>";
 $html .= "</div>";
 $count++;
-if($result->num_rows!=$count) $html .= "<pagebreak>";
+//if($result->num_rows!=$count) $html .= "<pagebreak>";
 }
 $html .= "</body>
 </html>";
 
+$mpdf->SetTitle("Student Profile ".$id);
 $mpdf->WriteHTML("$html");
-$mpdf->SetTitle("Student Profiles");
-$file="Student_Profiles.pdf";
+$file="Student_Profile_".$id.".pdf";
 $mpdf->Output($file, "I");
 
 ?>

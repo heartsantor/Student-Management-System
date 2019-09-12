@@ -27,7 +27,14 @@
               <li><a href="all_form.php?view=all">All Students</a></li>
             </ul>
           </li>
-        <li><a href="#">ID Card</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">ID Card
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="id_card.php?view=individual">Individual</a></li>
+                <li><a href="id_card.php?view=all">All Students</a></li>
+              </ul>
+            </li>
         <li><a href="#">Ex-Student</a></li>
         <li><a href="#">Search</a></li>
         <?php

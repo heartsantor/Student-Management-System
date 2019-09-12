@@ -13,46 +13,41 @@ $ins_row=mysqli_fetch_array($ins_res);
 
 
 include("../../mpdf/mpdf.php");
-$mpdf=new mPDF('','A4','11','times-new-roman');
+$mpdf=new mPDF('','A4','8','times-new-roman');
 
 
 $html = "<html>
 <head>
 <style>
-body
-{
-  font-family:times-new-roman;
-  line-height: 25px;
+.id-card {
+  width:2in;
+  height: 3in;
+  float: left;
+  display: inline;
+  align: center;
+  text-align: center;
+  padding-left: 10px;
 
 }
-.field-name
+.rotate-ins
 {
-  width: 150px;
-  float: left;
-  display: inline;
+ color:white;
+ background-color:#3498DB;
+ height:25px;
+ line-height: 25px;
 }
-.field-value
+img
 {
-  float: left;
-  width: 400px;
-  display: inline;
+  padding: 5px;
 }
-.images
+.sig
 {
-  float: right;
+  padding-top:20px;
+  padding-right:5px;
+  text-align: right;
+  padding-bottom: 5px;
 }
-.logo-div
-{
-  width: 100px;
-  float: left;
-  display: inline;
-}
-.ins-div
-{
-  text-align: center;
-  float: left;
-  display: inline;
-}
+
 </style>
 </head>";
 
@@ -60,119 +55,28 @@ $html .= "<body>";
 $count=0;
 while($row=mysqli_fetch_array($result))
 {
-
-  $html .= "<div class='logo-div'><img src='../../logo/instituition_logo.jpg' width='100px'></div>";
-  $html .= "<div class='ins-div'>";
-  $html .= "<div style='font-family:nikosh; font-size:23px'>".$ins_row['name']."</div>";
-  $html .= "<div style='font-family:nikosh; font-size:18px'>".$ins_row['address']."</div>";
-  $html .= "Estd: <b>".date_format(date_create($ins_row['estd']),'m/d/Y')."</b>, EIIN: <b>".$ins_row['eiin']."</b>, Phone: <b>".$ins_row['phone']."</b><br>";
-  $html .= "Email: <b>".$ins_row['email']."</b>, Web: <b>".$ins_row['web']."</b><br>";
-  $html .= "</div>";
-
-$class_res=mysqli_query($db,"SELECT * FROM class WHERE class_id='".$row['student_class']."'");
-$class_row=mysqli_fetch_array($class_res);
-
-$html .= "
-  <hr>
-  <span style='font-size: 18px'><b>Personal Information</b></span>
-  <hr>
-  <div class='field-name'>
-    <b>Name</b>   <br>
-    ID    <br>
-    Class <br>
-    Section <br>
-    Shift <br>
-    Group <br>
-    Roll  <br>
-    Gender <br>
-    Religion <br>
-    Date of Birth <br>
-    Blood Group <br>
-    Phone <br>
-    Present Address <br>
-    Permanent Address <br>
-    <br>
-    <u>Father Details</u><br>
-    Name<br>
-    Phone<br>
-    Occupation<br>
-    Income<br>
-    Office Address<br>
-
-    <br>
-    <u>Mother Details</u><br>
-    Name<br>
-    Phone<br>
-    Occupation<br>
-    Income<br>
-    Office Address<br>
-  </div>
-  <div class='field-value'>
-    : <b>".$row['student_name']."</b><br>
-    : ".$row['student_id']."<br>
-    : ".$class_row['class_name']."<br>
-    : ".$row['student_section']."<br>
-    : ".$row['student_shift']."<br>
-    : ".$row['student_group']."<br>
-    : ".$row['student_roll']."<br>
-    : ".$row['student_gender']."<br>
-    : ".$row['student_religion']."<br>
-    : ".$row['student_dob']."<br>
-    : ".$row['student_blood']."<br>
-    : ".$row['student_phone']."<br>
-    : ".$row['student_present_address']."<br>
-    : ".$row['student_par_address']."<br>
-    <br><br>
-    : ".$row['father_name']."<br>
-    : ".$row['father_phone']."<br>
-    : ".$row['father_occupation']."<br>
-    : ".$row['father_income']."<br>
-    : ".$row['father_office']."<br>
-    <br><br>
-    : ".$row['mother_name']."<br>
-    : ".$row['mother_phone']."<br>
-    : ".$row['mother_occupation']."<br>
-    : ".$row['mother_income']."<br>
-    : ".$row['mother_office']."<br>
-  </div>";
-
-  $html .= "<div class='images'>
-    <img src='../".$row['student_photo']."'><br><br>";
-if(file_exists("../".$row['father_photo'])&&$row['father_photo']!='')
-{
-    $html .="<img src='../".$row['father_photo']."'><br><br>";
-}
-else {
-      $html .="<img src='../../unisex-avatar.png'><br><br>";
+  $class_res=mysqli_query($db,"SELECT * FROM class WHERE class_id='".$row['student_class']."'");
+  $class_row=mysqli_fetch_array($class_res);
+    $html .= "<div class='id-card'>";
+    $html .= "<div style='font-family:nikosh; font-size:19px' class='rotate-ins'>".$ins_row['name']."</div>";
+    $html .= "<img src='../../logo/instituition_logo.jpg' height='50px'><br>";
+    $html .= "<img src='../".$row['student_photo']."' height='70px'>";
+    $html .= "<br><b>".$row['student_name'];
+    $html .= "<br>ID: ".$row['student_id'].", Class: ".$class_row['class_name'];
+    $html .= "<br>Roll: ".$row['student_roll'].", Group: ".$row['student_group']."</b>";
+    $html .= "<br>";
+    $html .= "<div class='sig'>";
+    $html .= "________<br>";
+    $html .= "Chairman";
+    $html .= "</div>";
+    $html .= "<div style='font-size:12px' class='rotate-ins'>INDENTITY CARD: ".$row['student_session']."</div>";
+    $html .= "</div>";
 }
 
-if(file_exists("../".$row['mother_photo'])&&$row['mother_photo']!='')
-{
-    $html .="<img src='../".$row['mother_photo']."'><br><br>";
-}
-else {
-    $html .="<img src='../../unisex-avatar.png'><br><br>";
-}
-$html .= "</div>";
-$html .= "<div style='width:100%; padding-top: 40px'>";
-$html .= "<div style='float:left; display:inline; width:5.8in;'>";
-$html .= "________________<br>
-          Guardian Signature";
-$html .= "</div>";
-$html .= "<div style='float:right'>";
-$html .= "________________<br>
-          Chairman Signature";
-$html .= "</div>";
-$html .= "</div>";
-$count++;
-//if($result->num_rows!=$count) $html .= "<pagebreak>";
-}
-$html .= "</body>
-</html>";
 
-$mpdf->SetTitle("Student Profile ".$id);
+$mpdf->SetTitle("Student ID ".$id);
 $mpdf->WriteHTML("$html");
-$file="Student_Profile_".$id.".pdf";
+$file="Student_ID_".$id.".pdf";
 $mpdf->Output($file, "I");
 
 ?>

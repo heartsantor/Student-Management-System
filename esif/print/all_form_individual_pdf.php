@@ -30,7 +30,7 @@ body
   width: 150px;
   float: left;
   display: inline;
-}
+} 
 .field-value
 {
   float: left;
